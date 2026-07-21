@@ -5,6 +5,8 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // 相对路径，保证 SPA 部署到 GitHub Pages 子路径（/Holistic-AI/s2pref/）时资源可加载
+    base: './',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
