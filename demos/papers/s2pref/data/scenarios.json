@@ -1,0 +1,159 @@
+[
+  {
+    "id": "linwei",
+    "title": "林伟的周末活动",
+    "persona": "林伟（Lin Wei），周末和朋友午餐时商量去处",
+    "stablePrefs": [
+      "喜欢自然环境",
+      "喜欢户外活动",
+      "偏好亲身探索而非走马观花"
+    ],
+    "situationalAspects": [
+      {
+        "aspect": "计划的活动类型取决于同伴",
+        "triggerA": "和朋友在一起",
+        "prefA": "偏好更冒险刺激的活动（如攀岩）",
+        "triggerB": "和家人在一起",
+        "prefB": "偏好更安全稳妥的活动（如缓步登山）"
+      }
+    ],
+    "scenarios": {
+      "withFriends": {
+        "role": "作为朋友，一起规划周末活动",
+        "context": "周六午后，与好友在餐厅午餐，商量明天去哪放松",
+        "dialogue": [
+          { "speaker": "user", "text": "明天终于周末了，我真想出去放松一下。", "relevance": "low" },
+          { "speaker": "friend", "text": "是啊，你想去哪儿？", "relevance": "low" },
+          { "speaker": "user", "text": "我想去有山有水的地方。咱们去爬个刺激的山怎么样？", "relevance": "high" },
+          { "speaker": "friend", "text": "听起来不错，我查查附近哪座山风景最壮观。", "relevance": "low" },
+          { "speaker": "user", "text": "要那种能手脚并用往上爬的，太平淡的没意思。", "relevance": "high" }
+        ],
+        "query": "帮我推荐一个明天的活动方案吧。",
+        "queryType": "explicit",
+        "queryTrigger": "和朋友",
+        "groundTruthPref": "prefA",
+        "clarifyHint": "查询未说明同伴是谁，但对话上下文已明确是和朋友。"
+      },
+      "withFamily": {
+        "role": "作为家人，一起规划周末活动",
+        "context": "周六午后，与家人在家商量明天去哪放松",
+        "dialogue": [
+          { "speaker": "user", "text": "明天周末，咱们一家出去走走吧。", "relevance": "low" },
+          { "speaker": "family", "text": "好啊，去哪儿呢？", "relevance": "low" },
+          { "speaker": "user", "text": "找个有山有水的地方，带孩子去呼吸下新鲜空气。", "relevance": "high" },
+          { "speaker": "family", "text": "那爬山怎么样？", "relevance": "medium" },
+          { "speaker": "user", "text": "爬个平缓点的山就行，安全第一，孩子还小。", "relevance": "high" }
+        ],
+        "query": "帮我推荐一个明天的活动方案吧。",
+        "queryType": "explicit",
+        "queryTrigger": "和家人",
+        "groundTruthPref": "prefB",
+        "clarifyHint": "查询未说明同伴是谁，但对话上下文已明确是和家人。"
+      }
+    }
+  },
+  {
+    "id": "dietary",
+    "title": "口味偏好与就餐场景",
+    "persona": "一位注重饮食的市民",
+    "stablePrefs": [
+      "喜欢吃肉",
+      "注重食材新鲜"
+    ],
+    "situationalAspects": [
+      {
+        "aspect": "口味偏好取决于就餐地点",
+        "triggerA": "在家做饭",
+        "prefA": "偏好清淡口味",
+        "triggerB": "在外就餐",
+        "prefB": "偏好重口味"
+      }
+    ],
+    "scenarios": {
+      "atHome": {
+        "role": "作为家人，讨论今晚在家做什么",
+        "context": "周五傍晚，在家商量晚餐",
+        "dialogue": [
+          { "speaker": "user", "text": "今晚在家做点啥？", "relevance": "low" },
+          { "speaker": "family", "text": "你想吃啥？", "relevance": "low" },
+          { "speaker": "user", "text": "清炒个时蔬，少油少盐，健康点。", "relevance": "high" },
+          { "speaker": "family", "text": "肉呢？", "relevance": "medium" },
+          { "speaker": "user", "text": "来个白灼虾就行，别放太多调料。", "relevance": "high" }
+        ],
+        "query": "给我今晚的菜谱建议吧。",
+        "queryType": "explicit",
+        "queryTrigger": "在家",
+        "groundTruthPref": "prefA",
+        "clarifyHint": "对话已明确是在家做饭。"
+      },
+      "atRestaurant": {
+        "role": "作为朋友，在热门餐厅聚餐",
+        "context": "周五傍晚，在一家热闹的小馆子和朋友聚餐",
+        "dialogue": [
+          { "speaker": "user", "text": "这家店招牌菜是什么？", "relevance": "low" },
+          { "speaker": "friend", "text": "好像有个麻辣水煮鱼很出名。", "relevance": "medium" },
+          { "speaker": "user", "text": "来来来，就要这个，越辣越够味。", "relevance": "high" },
+          { "speaker": "friend", "text": "再来个硬菜？", "relevance": "low" },
+          { "speaker": "user", "text": "整个香辣排骨，下饭又过瘾。", "relevance": "high" }
+        ],
+        "query": "给我今晚的点菜建议吧。",
+        "queryType": "explicit",
+        "queryTrigger": "在外就餐",
+        "groundTruthPref": "prefB",
+        "clarifyHint": "对话已明确是在外就餐。"
+      }
+    }
+  },
+  {
+    "id": "social",
+    "title": "社交场合的严格与放松",
+    "persona": "一位在家庭与朋友间切换角色的家长",
+    "stablePrefs": [
+      "重视责任与边界",
+      "看重真诚沟通"
+    ],
+    "situationalAspects": [
+      {
+        "aspect": "在社交活动中的严格程度取决于同伴",
+        "triggerA": "作为家长面对孩子",
+        "prefA": "更严格、强调规矩",
+        "triggerB": "作为朋友面对同龄人",
+        "prefB": "更放松、随性"
+      }
+    ],
+    "scenarios": {
+      "asParent": {
+        "role": "作为家长，辅导孩子作业",
+        "context": "工作日晚，在家辅导孩子功课",
+        "dialogue": [
+          { "speaker": "user", "text": "作业写完了吗？先把手机关了。", "relevance": "high" },
+          { "speaker": "child", "text": "再看五分钟嘛。", "relevance": "medium" },
+          { "speaker": "user", "text": "不行，规矩就是规矩，先完成正事。", "relevance": "high" },
+          { "speaker": "child", "text": "知道了……", "relevance": "low" },
+          { "speaker": "user", "text": "字写端正，做完我检查，达标了才能玩。", "relevance": "high" }
+        ],
+        "query": "接下来我该怎么安排？",
+        "queryType": "ambiguous",
+        "queryTrigger": null,
+        "groundTruthPref": "prefA",
+        "clarifyHint": "查询模糊：未说明面对的是孩子还是朋友，需主动澄清。"
+      },
+      "asFriend": {
+        "role": "作为朋友，和老友闲聊",
+        "context": "周末下午，和老友在咖啡馆闲聊",
+        "dialogue": [
+          { "speaker": "user", "text": "最近太累了，啥都不想管。", "relevance": "high" },
+          { "speaker": "friend", "text": "那就放空一下呗。", "relevance": "medium" },
+          { "speaker": "user", "text": "对，规矩那些先靠边，咱们怎么开心怎么来。", "relevance": "high" },
+          { "speaker": "friend", "text": "走，去打个游戏？", "relevance": "low" },
+          { "speaker": "user", "text": "走起，管它几点呢。", "relevance": "high" }
+        ],
+        "query": "接下来我该怎么安排？",
+        "queryType": "ambiguous",
+        "queryTrigger": null,
+        "groundTruthPref": "prefB",
+        "clarifyHint": "查询模糊：未说明面对的是孩子还是朋友，需主动澄清。"
+      }
+    }
+  }
+]

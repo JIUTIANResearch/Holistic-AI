@@ -1,0 +1,82 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">D2PCM: A Multi-Turn Dialogue Dataset with Personalized Contextual Memory</h1>
+<div class="ov-authors">Zhe Yang, Yi Huang, Yaqin Chen, Chunyang Gao, Jingyu Yao, Junlan Feng · JIUTIAN Research / 清华大学计算机系 · ACL 2026 (Findings)</div>
+
+<!-- 摘要 -->
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    记忆是交互式回复生成的关键，但传统方法把记忆当作无差别的上下文，忽略了个性化记忆编码与检索背后的认知过程，
+    导致记忆增强的对话数据集只含单一、无差别的记忆内容，无法刻画记忆处理的个性化本质。
+    受认知心理学<strong>自我参照效应</strong>启发，我们提出带<strong>个性化上下文记忆</strong>的多轮对话数据集 D2PCM：
+    每轮的记忆 chunk 含多条不同人格表达的记忆，其中与用户特征契合的一条更可能被选用。
+    数据集还为每轮提供多条带 reward 的候选回复以支持 RL 类后训练，并配套 win-rate 与 reward 双视角评测指标。
+  </p>
+</div>
+
+<!-- 研究目的 -->
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    传统 RAG 按<strong>相似度</strong>从全局记忆池检索，在不同用户间几乎没有差异，难以研究记忆处理的个性化机制。
+    但真实的人类记忆是<strong>因人而异</strong>的——与自身相关的信息更易被激活、被选用。
+    本文要构建一个能体现该机制的数据集，并验证<strong>个性化记忆选择优于 RAG</strong>。
+  </p>
+</div>
+
+<!-- 研究方法 -->
+<div class="ov-section">
+  <h3><span class="ic">🧠</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>人格构造</b>：基于 <b>Big-5 人格</b>（O/C/E/A/N，每维二值），生成 32 个 meta-personality 原型。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>记忆生成与采样</b>：每轮生成一个记忆 chunk，其中恰有一条是与画像契合的
+        <b>Personalized Contextual Memory</b>。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>回复与奖励</b>：基于所选记忆生成回复，并由奖励模型给出 memory / response 两类 reward；
+        每轮提供多条带 reward 的候选回复。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>评测</b>：LLM-judgement 的 win-rate + reward 驱动的回复质量评估，构成多视角基准。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">Big-5 画像</span><span class="arrow">→</span>
+      <span class="node">Query</span><span class="arrow">→</span>
+      <span class="node accent">5 条记忆（1 条契合）</span><span class="arrow">→</span>
+      <span class="node">回复</span><span class="arrow">→</span>
+      <span class="node">Reward</span>
+    </div>
+  </div>
+</div>
+
+<!-- 实验结果 -->
+<div class="ov-section">
+  <h3><span class="ic">📈</span>实验结果（Table 3 · Llama-8b：个性化记忆选择 vs RAG）</h3>
+  <div class="chart-2col">
+    <div class="chart-card">
+      <div class="ch-title">画像契合记忆命中比例</div>
+      <div class="ch-sub">个性化记忆选择策略将命中比例提升至 20.93%。</div>
+      <canvas data-chart='{"type":"bar","unit":"%","labels":["RAG\n(基线)","D2PCM"],"values":[4.4,20.93],"highlight":1,"max":24}'></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="ch-title">相对 RAG 的奖励提升</div>
+      <div class="ch-sub">记忆选择 reward +15.9%、回复生成 reward +16.5%。</div>
+      <canvas data-chart='{"type":"bar","unit":"%","labels":["记忆选择\nreward","回复生成\nreward"],"values":[15.9,16.5],"highlight":1,"max":20}'></canvas>
+    </div>
+  </div>
+  <div class="chart-card">
+    <div class="ch-title">奖励绝对增量（Llama-8b）</div>
+    <div class="ch-sub">memory selection +0.6412，response +0.4130。</div>
+    <canvas data-chart='{"type":"bar","labels":["记忆选择 Δreward","回复生成 Δreward"],"values":[0.6412,0.4130],"highlight":0,"max":0.8}'></canvas>
+  </div>
+</div>
+
+<!-- 论文主图 -->
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文主图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/d2pcm.png" alt="D2PCM 论文主图">
+    <figcaption>数据生成流程总览（取自论文）</figcaption>
+  </figure>
+</div>

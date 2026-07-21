@@ -7,6 +7,19 @@ __pycache__/
 *.pyc
 *.pyo
 
+# ===== 旧 S2Pref demo（safe_v2）=====
+# 该 demo 对应另一篇审稿中、未发表的论文，不公开部署，不推送 GitHub。
+safe_v2/
+
+# ===== 本地工作素材（站点不依赖，不入仓库）=====
+image/
+pictures.md
+论文.txt
+
+# ===== 论文 PDF（站点用公开论文链接，不上传 PDF）=====
+# 仅忽略仓库根的 papers/，不影响 demos/papers/ 与 site/assets/papers/
+/papers/
+
 # ===== 环境变量与密钥（绝不提交） =====
 .env
 .env.local

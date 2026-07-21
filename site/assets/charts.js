@@ -135,4 +135,6 @@
   }
   window.addEventListener("load", renderAll);
   window.addEventListener("resize", () => { clearTimeout(window.__ct); window.__ct = setTimeout(renderAll, 150); });
+  // 供概览页动态加载片段后重绘调用
+  window.Charts = { redraw: renderAll };
 })();

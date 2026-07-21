@@ -1,0 +1,84 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">Thinking Alignment of Scenario-Oriented User Simulation</h1>
+<div class="ov-authors">Xiaoting Wu, Yi Huang, Chunyang Gao, Mengfei Guo, Jingyu Yao, Junlan Feng · JIUTIAN Research / 清华大学计算机系 · ACL 2026</div>
+
+<!-- 摘要 -->
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    现有基于 prompt 角色扮演或 SFT 的用户模拟器，大多只模仿用户的<strong>表层话语</strong>，
+    未充分考虑人类决策背后多层次的认知过程。为更好地对齐真实人类的思维模式，
+    我们构建 <strong>LMSYS-UserThinking</strong> 数据集——在 51k 条 human–LLM 对话上，
+    重建用户在对话过程中与结束时的<strong>内心推理</strong>。同时引入<strong>场景设定</strong>来描述多轮对话的全局上下文与用户目标，
+    以增强可控性与情境一致性。基于该数据集，我们在不同基座上训练用户模拟器 <strong>ThinkingUS</strong>，
+    并从离线与在线两种视角评测，验证其有效性。
+  </p>
+</div>
+
+<!-- 研究目的 -->
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    只学「说了什么」而不学「为什么这么说」的模拟器，往往表现出<strong>过度配合、过度礼貌</strong>的偏差，
+    无法刻画真实用户的直接、跳跃与不可预测。本文要让用户模拟器对齐人类的<strong>内在认知过程</strong>，
+    从而产生更真实、更可泛化的交互行为，为助手模型提供更可靠的训练与评测环境。
+  </p>
+</div>
+
+<!-- 研究方法 -->
+<div class="ov-section">
+  <h3><span class="ic">💭</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>用户语境三元表示</b>：场景设定 S/M（背景与动机）+ 用户思维 T（隐藏）+ 用户话语 U（可见）。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>思维重建</b>：在真实对话上，依四维认知框架重建用户思维，含<b>元认知控制</b>（识别信息缺口、调整策略）
+        与<b>推理操作</b>（验证 / 回溯 / 原则细化）。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>in-process / terminal 思维</b>：前者支撑合理推断下一句话语，后者指导何时合理结束对话。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>训练 ThinkingUS</b>：在 LMSYS-UserThinking 上训练用户模拟器，先生成思维、再生成话语。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">场景设定 S,M</span><span class="arrow">+</span>
+      <span class="node accent">用户思维 T（隐藏）</span><span class="arrow">+</span>
+      <span class="node">用户话语 U</span>
+    </div>
+  </div>
+</div>
+
+<!-- 实验结果 -->
+<div class="ov-section">
+  <h3><span class="ic">📈</span>实验结果（Table 1 · in-process 胜率 r<sub>ω</sub>，对比 Prompt 基线）</h3>
+  <div class="chart-card">
+    <div class="ch-title">用户模拟胜率 r<sub>ω</sub>：思维驱动显著优于话语模仿</div>
+    <div class="ch-sub">两个测试集上，ThinkingUS（含 on Base）均大幅领先 Utterance SFT 与 Prompt Thinking。</div>
+    <canvas data-chart='{"type":"groupbar","labels":["LMSYS-Chat","WildChat"],"max":0.55,"series":[
+      {"name":"Utterance SFT","color":"rgba(125,136,163,.7)","values":[0.195,0.233],"dec":3},
+      {"name":"Prompt Thinking","color":"#a78bfa","values":[0.216,0.320],"dec":3},
+      {"name":"ThinkingUS (Base)","color":"#5eead4","values":[0.342,0.468],"dec":3}
+    ]}'></canvas>
+  </div>
+  <div class="chart-2col">
+    <div class="chart-card">
+      <div class="ch-title">数据集规模</div>
+      <div class="ch-sub">在 51k 真实 human-LLM 对话上重建内心推理。</div>
+      <canvas data-chart='{"type":"bar","unit":"","labels":["对话数 (k)"],"values":[51],"highlight":0,"max":60}'></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="ch-title">ThinkingUS 相对话语 SFT 的胜率增益</div>
+      <div class="ch-sub">on Base 模型在两测试集上的提升幅度。</div>
+      <canvas data-chart='{"type":"bar","labels":["LMSYS-Chat","WildChat"],"values":[0.147,0.235],"highlight":1,"max":0.3}'></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- 论文主图 -->
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文主图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/thinkingus.png" alt="ThinkingUS 论文主图">
+    <figcaption>用户探索复杂问题的心理过程：元认知控制与推理操作（取自论文）</figcaption>
+  </figure>
+</div>

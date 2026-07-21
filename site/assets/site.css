@@ -196,3 +196,23 @@ ul.tasks li::before { content: "▸"; position: absolute; left: 4px; color: var(
 @media (max-width: 760px) {
   .card-grid { grid-template-columns: 1fr; }
 }
+
+/* ============ hub（数据驱动，按年代分组） ============ */
+.hub-grid { max-width: 1080px; margin: 0 auto; padding: 8px 32px 64px; }
+.group-title {
+  font-family: var(--mono); font-size: 22px; font-weight: 800; letter-spacing: 1px;
+  margin: 36px 0 18px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+.group-title .group-count { font-size: 13px; color: var(--text-dim); font-weight: 400; margin-left: 8px; }
+.card-grid-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 8px;
+}
+@media (max-width: 760px) { .card-grid-inner { grid-template-columns: 1fr; } }
+
+.hub-foot { text-align: center; padding: 24px 32px 48px; }
+.hub-foot .dim { font-size: 13px; }
+.hub-foot a { color: var(--accent); }
+
+/* ============ overview 链接行 ============ */
+.ov-links { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 8px; }

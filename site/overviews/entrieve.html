@@ -1,0 +1,51 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">Entriever: Energy-based Retriever for Knowledge-Grounded Dialog Systems</h1>
+<div class="ov-authors">Yucheng Cai, Ke Li, Yi Huang, Junlan Feng, Zhijian Ou · 清华大学 SPMI Lab / China Mobile Research Institute · ACL 2025 (Findings)</div>
+
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    在知识引导对话系统中，给定上下文常有多个相关且彼此相关的知识片段，但现有检索器多假设知识片段<strong>条件独立</strong>。
+    本文提出基于能量的检索器 <strong>Entriever</strong>，直接把<strong>候选检索结果作为整体</strong>建模，而非分别建模知识片段，
+    相关性得分由能量函数定义。探索了多种能量函数架构与训练方法，Entriever 在知识检索任务上显著超过强 cross-encoder 基线，
+    并提升了端到端对话性能。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    传统检索器把每个知识片段独立打分再排序，忽略了「多个相关片段合在一起才有用」的整体性。
+    本文要让检索器能<strong>对候选集合整体评分</strong>，捕捉片段间的相关性。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🧠</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>能量函数建模</b>：用能量函数定义「候选片段集合」与上下文的相关性，低能量=高相关。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>整体而非分拆</b>：直接对候选检索结果作为整体建模，避免条件独立假设，捕捉片段间协同。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>架构与训练探索</b>：尝试多种能量函数架构与训练方法，寻找最优组合。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>端到端验证</b>：检索任务上显著超过 cross-encoder 基线，并提升知识引导对话的端到端性能。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">上下文</span><span class="arrow">+</span>
+      <span class="node">候选片段集合</span><span class="arrow">→</span>
+      <span class="node accent">能量函数 E(·)</span><span class="arrow">→</span>
+      <span class="node">整体相关性得分</span>
+    </div>
+  </div>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文配图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/entrieve.png" alt="Entriever 论文主图">
+    <figcaption>基于能量的整体检索建模（取自论文）</figcaption>
+  </figure>
+</div>

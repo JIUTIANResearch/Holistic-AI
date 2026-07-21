@@ -1,0 +1,51 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">Multiagent Reinforcement Learning Based on Structural Coordination</h1>
+<div class="ov-authors">Yixuan Li, Yi Huang, Junlan Feng, Chao Deng, Chunyu Liu, Vincent Chau, Wanyuan Wang · JIUTIAN Team, China Mobile Research Institute · Tsinghua Science and Technology 2025</div>
+
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    多智能体系统（MAS）因协作能力与灵活性被广泛用于求解协作任务，其中<strong>协调智能体间协作策略</strong>最具挑战。
+    传统多智能体强化学习（MARL）通过价值分解把团队目标转化为各智能体个体目标，但价值分配机制难以准确衡量智能体间贡献差异。
+    本文提出基于<strong>结构化协作</strong>的 MARL 方法，利用智能体间局部交互结构，给出显式与隐式两种实现：
+    显式方法基于协作关系构建协作图并用 <strong>Shapley 值</strong>评估贡献；隐式方法用自注意力动态构建交互结构。实验表明优于多种基线。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    价值分解类 MARL 把团队回报分给个体时，常<strong>衡量不准各智能体的真实贡献</strong>，导致协作策略次优。
+    本文要借助智能体间的<strong>交互结构</strong>，更精准地评估贡献、改进协作。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🧠</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>结构化协作</b>：利用智能体间局部交互结构来建模协作，而非把所有智能体等同对待。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>显式实现</b>：基于协作关系构建显式协作图，用 Shapley 值评估每个智能体在图中的贡献。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>隐式实现</b>：用自注意力机制动态构建隐式交互结构，适应不同场景。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>评估</b>：相比多种基线，更精准的贡献度评估带来更高的协作性能。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">智能体局部交互</span><span class="arrow">→</span>
+      <span class="node accent">协作图 / 自注意力</span><span class="arrow">→</span>
+      <span class="node">Shapley 贡献评估</span><span class="arrow">→</span>
+      <span class="node">协作策略</span>
+    </div>
+  </div>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文配图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/marl.png" alt="MARL Structural Coordination 论文主图">
+    <figcaption>显式协作图与隐式自注意力结构（取自论文）</figcaption>
+  </figure>
+</div>

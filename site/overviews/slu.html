@@ -1,0 +1,50 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">Modeling Multi-Turn Spoken Language Understanding with Dynamic Graph Convolutional Networks</h1>
+<div class="ov-authors">Yi Huang, Si Chen, Jingyu Yao, Junlan Feng · JIUTIAN Team, China Mobile Research Institute · INTERSPEECH 2025</div>
+
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    口语理解（SLU）是任务型对话系统的关键环节，需借助对话上下文在<strong>话语层做意图检测</strong>、在 <strong>token 层做槽位填充</strong>。
+    但多轮 SLU 中如何恰当吸收对话上下文仍是难题——真实场景中对话信息分布动态，
+    关键细节（如意图与行为切换）常被大量次要信息淹没。本文提出引入<strong>动态图卷积网络</strong>的新型 SLU 模型，
+    选择性地将重要历史信息整合进对话上下文，增强对上下文相关线索的敏感性。在 SIM、CMCC、FewJoint 三个基准及真实场景数据上验证有效。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    多轮对话里，并非每轮历史都同等重要——意图切换、行为转折等关键线索常淹没在海量闲言中。
+    本文要让 SLU 模型具备<strong>选择性吸收历史</strong>的能力，而非无差别地把全部上下文塞进模型。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🧠</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>对话图建模</b>：把多轮对话构造为图结构，节点为话语/词，边刻画其交互依赖。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>动态图卷积</b>：用动态图卷积网络在图上聚合信息，能<strong>选择性地</strong>放大重要历史、抑制冗余。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>联合 SLU</b>：在增强后的上下文上同时做意图检测与槽位填充。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>多基准验证</b>：在 SIM、CMCC、FewJoint 及真实场景数据上评估，证实对上下文相关线索更敏感。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">多轮对话历史</span><span class="arrow">→</span>
+      <span class="node accent">动态图卷积（选择性聚合）</span><span class="arrow">→</span>
+      <span class="node">意图检测 + 槽位填充</span>
+    </div>
+  </div>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文配图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/slu.png" alt="Multi-Turn SLU 论文主图">
+    <figcaption>动态图卷积多轮 SLU 模型结构（取自论文）</figcaption>
+  </figure>
+</div>

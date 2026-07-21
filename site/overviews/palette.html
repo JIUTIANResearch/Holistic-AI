@@ -1,0 +1,53 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">Palette of Language Models: A Solver for Controlled Text Generation</h1>
+<div class="ov-authors">Zhe Yang, Yi Huang, Yaqin Chen, Xiaoting Wu, Junlan Feng, Chao Deng · JIUTIAN Team, China Mobile Research Institute · NAACL 2025</div>
+
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    大语言模型的受控文本生成中，设计一个提示同时控制多个属性颇具挑战，常用做法是线性组合多个单属性模型，
+    但这种方式常<strong>忽视属性重叠</strong>、导致属性冲突。本文受<strong>全概率律</strong>与<strong>条件互信息最小化</strong>启发，
+    提出一种面向生成式语言模型的组合策略，因其将属性强度与生成风格的联系类比画家调色板上的调色，
+    命名为「<strong>Palette of Language Models</strong>」。该方法被适配到单属性控制场景，
+    并在理论上刻画了属性增强与正相关的统一关系。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    多属性受控生成中，线性组合单属性模型会因属性间重叠而产生冲突。本文要解决：如何在<strong>不重训大模型</strong>的前提下，
+    把多个单属性模型组合成一个能同时、无冲突地满足多维属性要求的生成器。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🧠</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>理论基础</b>：从全概率律与条件互信息最小化出发，推导多属性组合的概率形式，刻画属性强度与生成风格的对应关系。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>调色板类比</b>：把每个单属性模型视作一种「颜色」，组合策略像在调色板上混色——属性强度即色彩比例，
+        生成风格即混合后的色相，从而直观理解多属性协同。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>单属性适配</b>：将组合框架退化适配到单属性控制场景，验证其理论一致性。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>属性增强与正相关</b>：统一刻画属性增强效应与属性间的正相关关系，为多属性融合提供指导原则。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">单属性模型 A</span><span class="arrow">+</span>
+      <span class="node">单属性模型 B</span><span class="arrow">→</span>
+      <span class="node accent">Palette 组合</span><span class="arrow">→</span>
+      <span class="node">多属性受控生成</span>
+    </div>
+  </div>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文配图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/palette.png" alt="Palette of Language Models 论文主图">
+    <figcaption>调色板式多属性模型融合示意（取自论文）</figcaption>
+  </figure>
+</div>

@@ -1,0 +1,51 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">Harnessing Diverse Perspectives: A Multi-Agent Framework for Enhanced Error Detection in Knowledge Graphs</h1>
+<div class="ov-authors">Yu Li, Yi Huang, Guilin Qi, Junlan Feng, Nan Hu, Songlin Zhai, Haohan Xue, Yongrui Chen, Ruoyan Shen, Tongtong Wu · 东南大学 / China Mobile Research Institute / Monash University · DASFAA 2025</div>
+
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    知识图谱在工业应用中广泛使用，<strong>错误检测</strong>对保障下游应用可靠性至关重要。现有方法常难以有效利用细粒度子图信息、
+    仅依赖固定图结构，且决策过程缺乏透明度。本文提出多智能体知识图谱错误检测框架 <strong>MAKGED</strong>，在协作设置下使用多个大模型：
+    训练时将<strong>细粒度双向子图嵌入</strong>与基于 LLM 的查询嵌入拼接，整合为四个专业智能体，
+    各智能体从不同维度利用子图信息进行<strong>多轮讨论</strong>，从而提升检测准确率、鲁棒性与决策透明度。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    知识图谱里藏的错误会污染下游应用。单模型检测既看不全子图、又说不清为什么判错。本文要让错误检测既<strong>更准</strong>，
+    又<strong>过程透明</strong>（可追溯多智能体讨论）。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🧠</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>子图嵌入</b>：抽取细粒度双向子图嵌入，刻画实体邻域结构信息。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>LLM 查询嵌入</b>：用 LLM 把查询表示为嵌入，与子图嵌入拼接训练。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>四专业智能体</b>：整合为四个从不同维度利用子图信息的专业智能体，各司其职。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>多轮讨论</b>：智能体间多轮协作讨论后给出错误判定，提升准确率、鲁棒性与透明度。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">子图嵌入</span><span class="arrow">+</span>
+      <span class="node">LLM 查询嵌入</span><span class="arrow">→</span>
+      <span class="node accent">4 个专业智能体</span><span class="arrow">→</span>
+      <span class="node">多轮讨论 → 错误判定</span>
+    </div>
+  </div>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文配图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/makged.png" alt="MAKGED 论文主图">
+    <figcaption>多智能体协作的错误检测框架（取自论文）</figcaption>
+  </figure>
+</div>

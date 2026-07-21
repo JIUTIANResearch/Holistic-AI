@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S2Pref · 情境偏好诊断交互演示</title>
+<link rel="stylesheet" href="../../shell/shell.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">S2<span class="logo-glow">Pref</span></span>
+    <span class="subtitle">稳定偏好 vs 情境偏好&nbsp;·&nbsp;Beyond&nbsp;Static&nbsp;Profiles</span>
+  </div>
+  <div class="meta">
+    <span class="tag">中移九天研究院</span>
+    <span class="tag accent">ACL&nbsp;2026</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 任务切换 -->
+  <section class="card task-tabs">
+    <div class="card-head">
+      <span class="icon">🧩</span>
+      <span class="card-title">诊断任务</span>
+      <span class="dim">三个互补任务，对应论文 Task 1 / 2 / 3</span>
+    </div>
+    <div class="tab-row">
+      <button class="tab active" data-task="1">Task 1 · 显式上下文对齐</button>
+      <button class="tab" data-task="2">Task 2 · 冲突识别与澄清</button>
+      <button class="tab" data-task="3">Task 3 · 情境偏好推断效率</button>
+    </div>
+    <p id="task-desc" class="task-desc"></p>
+  </section>
+
+  <!-- 画像与偏好 -->
+  <section class="card">
+    <div class="card-head">
+      <span class="icon">👤</span>
+      <span class="card-title">用户画像 <span id="persona-name" class="dim">—</span></span>
+      <span class="grow"></span>
+      <span class="dim">偏好通过对话隐式展现（Show, Don't Tell）</span>
+    </div>
+    <div class="pref-grid">
+      <div class="pref-col stable">
+        <div class="pref-head">🟢 稳定偏好 <span class="dim">（与语境无关）</span></div>
+        <ul id="stable-list" class="pref-list"></ul>
+      </div>
+      <div class="pref-col situ">
+        <div class="pref-head">🔴 情境偏好 <span class="dim">（随语境翻转）</span></div>
+        <div id="aspect-box" class="aspect-box"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 对话流 -->
+  <section class="card">
+    <div class="card-head">
+      <span class="icon">💬</span>
+      <span class="card-title">对话流</span>
+      <span id="scene-meta" class="dim">—</span>
+      <span class="grow"></span>
+      <span class="rel-legend"><span class="dot h"></span>高相关 <span class="dot m"></span>中 <span class="dot l"></span>低</span>
+    </div>
+    <div id="dialog" class="dialog"></div>
+    <div class="dialog-controls">
+      <button id="step-btn" class="btn">⏭ 揭示下一轮</button>
+      <button id="reveal-all-btn" class="btn">👁 揭示全部</button>
+      <button id="reset-btn" class="btn">🔄 重置</button>
+    </div>
+  </section>
+
+  <!-- 当前查询 -->
+  <section class="card query-card">
+    <div class="card-head">
+      <span class="icon">❓</span>
+      <span class="card-title">当前用户查询</span>
+    </div>
+    <div id="query-box" class="query-box">—</div>
+  </section>
+
+  <!-- 交互作答区（随任务变化） -->
+  <section class="card answer-card">
+    <div class="card-head">
+      <span class="icon">🎯</span>
+      <span class="card-title" id="answer-title">你的判断</span>
+    </div>
+    <div id="answer-area"></div>
+    <div id="feedback" class="feedback hidden"></div>
+  </section>
+
+  <!-- 论文结果对照 -->
+  <section class="card">
+    <div class="card-head">
+      <span class="icon">📊</span>
+      <span class="card-title">论文实测结果对照</span>
+      <span class="dim">Table 2 / 3</span>
+    </div>
+    <div id="result-area" class="result-area"></div>
+  </section>
+
+</main>
+
+<footer class="control-bar">
+  <div class="control-group">
+    <label class="dim">场景</label>
+    <select id="scenario-select" class="ctrl"></select>
+  </div>
+  <div id="status" class="status dim">就绪</div>
+</footer>
+
+<script src="../../shell/nav.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

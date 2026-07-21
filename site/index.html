@@ -19,89 +19,27 @@
 </header>
 
 <section class="hub-hero">
-  <h1>JIUTIAN Research 研究成果</h1>
+  <h1>JIUTIAN Research 论文成果</h1>
   <p>
-    JIUTIAN Research 围绕个性化对话的近期工作：覆盖<strong>多轮交互中的画像对齐</strong>、
-    <strong>偏好的情境流动性</strong>、<strong>个性化上下文记忆</strong>，以及<strong>面向场景的用户模拟</strong>，
-    探索对话智能体在真实使用环境中的认知与对齐机制。
+    中国移动 JIUTIAN Research（中移九天研究院）围绕大语言模型与对话智能体的近期研究工作，
+    覆盖<strong>受控文本生成</strong>、<strong>个性化与偏好建模</strong>、
+    <strong>知识检索与推理</strong>、<strong>口语理解</strong>及<strong>多智能体协作</strong>等方向。
+    下方按发表年代分组，点击卡片查看论文概览、配图与可交互演示。
   </p>
   <div class="org">
-    <span class="tag accent">ICLR 2026</span>
-    <span class="tag violet">ACL 2026 ×3</span>
+    <span class="tag accent">ICLR / AAAI / NeurIPS</span>
+    <span class="tag violet">ACL · NAACL · COLING · INTERSPEECH · DASFAA</span>
   </div>
 </section>
 
-<main class="card-grid">
-
-  <!-- PAMDP -->
-  <article class="paper-card">
-    <div class="pc-head">
-      <span class="pc-abbr">P<span class="glow">A</span>MDP</span>
-      <span class="tag accent">ICLR 2026</span>
-    </div>
-    <h2>Interact to Persona Alignment via a POMDP</h2>
-    <div class="pc-desc">
-      把"通过对话理解用户画像"建模为<strong>部分可观测马尔可夫决策过程</strong>，
-      用 <strong>Dual-Critic</strong> 强化学习：训练时 Critic-2 偷看真实画像，运行时只用 Critic-1。
-    </div>
-    <div class="pc-actions">
-      <a class="btn" href="pamdp.html">📄 论文概览</a>
-      <a class="btn primary" href="demos/papers/pamdp/" target="_blank">▶ 交互演示</a>
-    </div>
-  </article>
-
-  <!-- S2Pref -->
-  <article class="paper-card">
-    <div class="pc-head">
-      <span class="pc-abbr">S2<span class="glow">Pref</span></span>
-      <span class="tag violet">ACL 2026</span>
-    </div>
-    <h2>Beyond Static Profiles：捕捉用户偏好的流动性</h2>
-    <div class="pc-desc">
-      区分<strong>稳定偏好</strong>(与语境无关) 与<strong>情境偏好</strong>(随语境翻转、甚至冲突)。
-      10k 条目、150k 多轮对话，三个诊断任务考察上下文对齐、冲突澄清与推断效率。
-    </div>
-    <div class="pc-actions">
-      <a class="btn" href="s2pref.html">📄 论文概览</a>
-      <a class="btn primary" href="s2pref/" target="_blank">▶ 交互演示</a>
-    </div>
-  </article>
-
-  <!-- D2PCM -->
-  <article class="paper-card">
-    <div class="pc-head">
-      <span class="pc-abbr">D2<span class="glow">PCM</span></span>
-      <span class="tag violet">ACL 2026</span>
-    </div>
-    <h2>个性化上下文记忆的多轮对话数据集</h2>
-    <div class="pc-desc">
-      基于认知心理学的<strong>自我参照效应</strong>与 <strong>Big-5 人格</strong>：
-      与用户画像契合的记忆更易被选中。<strong>个性化记忆选择</strong>在奖励上显著优于 RAG。
-    </div>
-    <div class="pc-actions">
-      <a class="btn" href="d2pcm.html">📄 论文概览</a>
-      <a class="btn primary" href="demos/papers/d2pcm/" target="_blank">▶ 交互演示</a>
-    </div>
-  </article>
-
-  <!-- ThinkingUS -->
-  <article class="paper-card">
-    <div class="pc-head">
-      <span class="pc-abbr">Thinking<span class="glow">US</span></span>
-      <span class="tag violet">ACL 2026</span>
-    </div>
-    <h2>面向场景的用户模拟之思维对齐</h2>
-    <div class="pc-desc">
-      用户语境 = <strong>场景设定 + 内心思维 + 用户话语</strong>。在 51k 真实对话上重建用户内心推理，
-      训练出由<strong>思维驱动</strong>的用户模拟器，比只模仿话语的方法更像真人。
-    </div>
-    <div class="pc-actions">
-      <a class="btn" href="thinking.html">📄 论文概览</a>
-      <a class="btn primary" href="demos/papers/thinking/" target="_blank">▶ 交互演示</a>
-    </div>
-  </article>
-
+<main id="card-grid" class="hub-grid">
+  <!-- 由 app.js 从 papers.json 按年代分组渲染 -->
 </main>
 
+<footer class="hub-foot">
+  <span class="dim">论文 PDF 见仓库 <a href="../papers/">papers/</a> 目录 · 论文版权归原作者所有</span>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>

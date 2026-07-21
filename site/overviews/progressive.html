@@ -1,0 +1,51 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">A Progressive Learning Strategy for Medical Natural Language Understanding</h1>
+<div class="ov-authors">Zhe Yang, Yi Huang, Mengfei Guo, Yaqin Chen, Xiaoting Wu, Junlan Feng, Chao Deng · JIUTIAN Team, China Mobile Research Institute · ACL 2025</div>
+
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    医学自然语言理解（NLU）任务旨在从医疗对话或文本中抽取临床相关信息。标注医学数据集<strong>稀缺</strong>，
+    常阻碍跨多任务的稳健模型训练。一种思路是把神经网络分解为<strong>模块化技能组件</strong>以利于知识迁移，
+    但在多任务学习中无差别聚合技能模块会导致技能优化不佳。本文提出<strong>渐进学习范式</strong>：
+    每个任务只允许利用难度层级中位于其前的任务网络结构，从而最大化从较简单子任务吸收知识。在四个关键医学 NLP 任务上验证有效。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    把所有技能模块一股脑聚合训练，简单任务会拖累复杂任务、或被复杂任务带偏。本文要让训练遵循<strong>由易到难的难度阶梯</strong>，
+    让知识沿难度层级有序传递。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🧠</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>技能模块化</b>：把网络分解为可组合的模块化技能组件，便于跨任务复用。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>难度层级</b>：为医学 NLU 任务定义难度顺序，形成由易到难的阶梯。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>渐进约束</b>：每个任务只能利用难度层级中<strong>位于其前</strong>的任务网络结构，强制有序知识传递。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>四任务验证</b>：在 SSIC、SPRJ、NER 等四个关键医学 NLP 任务上验证，尤以临床正负发现分类提升明显。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">易任务</span><span class="arrow">→</span>
+      <span class="node">中任务</span><span class="arrow">→</span>
+      <span class="node accent">难任务</span><span class="arrow">→</span>
+      <span class="node">渐进共享网络结构</span>
+    </div>
+  </div>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文配图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/progressive.png" alt="Progressive Learning 论文主图">
+    <figcaption>按难度层次的渐进学习范式（取自论文）</figcaption>
+  </figure>
+</div>

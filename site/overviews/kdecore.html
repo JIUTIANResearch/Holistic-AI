@@ -1,0 +1,51 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">K-DECORE: Facilitating Knowledge Transfer in Continual Structured Knowledge Reasoning via Knowledge Decoupling</h1>
+<div class="ov-authors">Yongrui Chen, Yi Huang, Yunchang Liu, Shenyu Zhang, Junhao He, Tongtong Wu, Guilin Qi, Tianxing Wu · 东南大学 / JIUTIAN Research, China Mobile / 清华大学 / Monash University · NeurIPS 2025</div>
+
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    持续结构化知识推理（CSKR）训练模型处理序列任务，每项任务需把自然语言问题翻译为基于结构化知识的结构化查询。
+    现有通用持续学习方法应用于此任务时面临<strong>泛化差</strong>、参数随任务增长导致<strong>推理低效</strong>等问题。
+    本文提出新框架 <strong>K-DECORE</strong>，以<strong>固定数量可调参数</strong>运行，引入知识解耦机制将推理过程解耦为
+    <strong>任务相关</strong>与<strong>任务无关</strong>两阶段，有效弥合任务间差距，并在多个指标上优于现有持续学习方法。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    持续学习里，新任务一来参数就涨、旧任务又容易忘，跨任务迁移效果差。本文要在<strong>参数不增长</strong>的前提下，
+    让模型在结构化知识推理的序列任务间高效迁移。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🧠</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>固定可调参数</b>：以固定数量的可调参数运行，避免随任务数线性增长的开销。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>知识解耦</b>：把推理过程解耦为任务无关阶段（通用推理能力）与任务相关阶段（任务专属适配）。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>二元视角记忆巩固</b>：针对两阶段引入二元视角的记忆巩固机制，强化迁移与抗遗忘。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>结构引导伪数据合成</b>：用结构引导策略合成伪数据增强泛化，多指标优于现有持续学习方法。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">序列任务</span><span class="arrow">→</span>
+      <span class="node accent">知识解耦（无关 + 相关）</span><span class="arrow">→</span>
+      <span class="node">固定参数 + 记忆巩固</span><span class="arrow">→</span>
+      <span class="node">结构化查询</span>
+    </div>
+  </div>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文配图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/kdecore.png" alt="K-DECORE 论文主图">
+    <figcaption>知识解耦的持续结构化推理框架（取自论文）</figcaption>
+  </figure>
+</div>

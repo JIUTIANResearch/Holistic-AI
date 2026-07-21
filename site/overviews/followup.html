@@ -1,0 +1,51 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">From Superficial to Deep: Integrating External Knowledge for Follow-up Question Generation Using Knowledge Graph and LLM</h1>
+<div class="ov-authors">Jianyu Liu, Yi Huang, Sheng Bi, Junlan Feng, Guilin Qi · 东南大学 / China Mobile Research Institute · COLING 2025</div>
+
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    对话系统中基于上下文动态生成后续问题，能帮用户探索信息、提升体验。但现有方法生成的问题多停留在<strong>浅层上下文</strong>层面，
+    缺乏启发性、与人类水平差距大。本文提出<strong>三阶段外部知识增强</strong>的后续问题生成方法：
+    识别上下文主题、在线构建知识图谱（KG）、再结合大语言模型生成最终问题，通过引入外部常识生成信息丰富、具探索性的后续问题，
+    更接近人类提问水平且保持上下文相关。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    人会问涉及生活常识、体现高阶认知的后续问题，而模型常只生成「就事论事」的浅层问题。本文要让后续问题生成从
+    <strong>浅层（superficial）走向深层（deep）</strong>，更具信息量与启发性。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🧠</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>主题识别</b>：从对话上下文中识别当前讨论主题，为知识引入提供锚点。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>在线构建 KG</b>：围绕主题在线构建知识图谱，抽取相关实体与关系作为外部知识。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>LLM 生成</b>：把上下文与 KG 知识结合，由大语言模型生成最终后续问题。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>评估</b>：相比基线，生成的问题信息量更高、更接近人类、且保持上下文相关。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">上下文主题</span><span class="arrow">→</span>
+      <span class="node">在线 KG</span><span class="arrow">→</span>
+      <span class="node accent">LLM + 常识</span><span class="arrow">→</span>
+      <span class="node">深层后续问题</span>
+    </div>
+  </div>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文配图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/followup.png" alt="Follow-up Question Generation 论文主图">
+    <figcaption>三阶段知识增强后续问题生成流程（取自论文）</figcaption>
+  </figure>
+</div>

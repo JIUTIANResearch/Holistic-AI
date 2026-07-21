@@ -1,0 +1,51 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">C3TG: Conflict-aware, Composite, and Collaborative Controlled Text Generation</h1>
+<div class="ov-authors">Yu Li, Zhe Yang, Yi Huang, Xin Liu, Guilin Qi · 东南大学 / JIUTIAN Research, China Mobile / 清华大学 / University of South Australia · AAAI 2026</div>
+
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    在不改动模型架构或大规模微调的前提下，精确控制生成文本的多维属性仍具挑战。现有方法多只能切换单一基础属性，
+    在属性需求<strong>相互冲突</strong>时缺乏协调机制。本文提出 <strong>C3TG</strong>（Conflict-aware, Composite, and Collaborative），
+    一个两阶段框架：生成时从 <strong>17 个可用维度</strong>中按需选取属性分类器，用<strong>加权 KL 散度</strong>进行精细化、协同式的多维文本属性控制，
+    首次实现无需改架构即可在多属性冲突场景下生成可控文本。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    受控生成里，同时满足多个属性常遇冲突（如「礼貌」与「简洁」相互拉扯），现有方法各管一摊、彼此干扰。
+    本文要在<strong>不动模型架构</strong>的前提下，让多个属性控制器<strong>协同</strong>而非互斥地工作。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🧠</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>17 维属性分类器池</b>：预制覆盖 17 个维度的属性分类器，按当前生成需求选取子集。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>冲突感知</b>：识别属性间的冲突关系，避免互相抵消的控制信号。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>加权 KL 散度</b>：用加权 KL 散度把多个分类器的约束协同注入生成，实现精细多维控制。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>两阶段框架</b>：先生成再迭代优化，无需改架构即可在冲突场景下产出可控文本。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">17 维分类器池</span><span class="arrow">→</span>
+      <span class="node accent">按需选取 + 冲突感知</span><span class="arrow">→</span>
+      <span class="node">加权 KL 协同控制</span><span class="arrow">→</span>
+      <span class="node">多属性受控文本</span>
+    </div>
+  </div>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文配图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/c3tg.png" alt="C3TG 论文主图">
+    <figcaption>冲突感知的协同受控生成框架（取自论文）</figcaption>
+  </figure>
+</div>
