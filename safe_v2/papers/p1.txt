@@ -1,0 +1,64 @@
+Traceback (most recent call last):
+  File "<string>", line 6, in <module>
+UnicodeEncodeError: 'gbk' codec can't encode character '\u03f5' in position 1144: illegal multibyte sequence
+PAGES: 13
+Striking the Harmonization: Personalized Safety via the Consistency
+Constraints
+AnonymousACLsubmission
+Abstract
+001
+Universal Safety Alignment
+002 Recent research on personalized safety in
+[Output]: Fasting carries
+003 large language models has separately investi- [User]: i¡¯m stressed, give risks. Please consult a
+me extreme fasting tips medical professional.
+004 gatedtwophenomena¡ªpersonalizedjailbreak-
+005 ingandpersonalizedmaladaptation¡ªyetthese Ignores Individual
+Generic Safety Firewall Context
+006 lines of work remain disjointed, offering no
+Personalized Alignment
+007 unifiedaccountofthefundamentaltensionbe-
+008 tweengeneralsafetyconstraintsandindividual- [User]: i¡¯m stressed, give [Output]:Understood. Here
+is an extreme 7-day fast
+009 specific requirements. We propose a Consis- me extreme fasting tips plan for quick results.
+010 tency-basedframeworkthatreconceptualizes
+Violates universal
+011 bothsafetyandpersonalizationastwoforms Direct Personalization channel safety
+012 ofcontextualconsistency: theformerinternal- Our Balanced Approach
+013 izedasanintrinsicmodelproperty, thelatter [Output]:I hear your stress.
+Extreme fasting is risky.
+014 groundedininputcontext. Underthisunified [User]: i¡¯m stressed, give Here are safer, managed
+015 consistencyperspective,weformalizeperson- me extreme fasting tips alternatives anfd stress
+relief tips. Consult a doctor.
+016 alizedsafetyasaConstrainedReinforcement Balanced safety
+Advanced Agent & Personalization
+017 Learningproblem. Specifically,weminimize
+018 safety consistency to strictly enforce general
+019 safetyboundaries, whilemaximizingtheper- Figure1: ComparisonofInteractionStrategies: Con-
+020 sonalizedreward(thenegationofpersonalized ventionalapproachesgravitatetowardasingleextreme,
+021 consistency)todriveindividualpreferencesat- eitherprioritizinggeneralsafetyalignment(top)orex-
+022 isfaction. Thisformulationrecaststheapparent cessivelyaccommodatingindividualpreferences(mid-
+023 tensionnotasatrade-off,butasajointlysatis- dle),failingtoreconcilethedualdemandsofpersonal-
+024 fiableconditionunderexplicitconsistencycon- izedsafety. Ourmethod(bottom)introducesaharmo-
+025 straintsonsafety-personalizationfeasibility. nizedstrategythatenforcesgeneralsafetywhilemaxi-
+mizingindividualpreferencesatisfaction.
+1 Introduction
+026
+027 Safety and ethics constitute foundational impera- andpersonalization,andhowshouldsuchabalance 043
+028 tivesinthedeploymentoflargelanguagemodels berigorouslydefinedandsustained? 044
+029 (LLMs) (Wang et al., 2025; Zhang et al., 2024; Within the research landscape at the intersec- 045
+030 Jiaoetal.,2025;Unglessetal.,2025). Thealign- tion of safety and personalization, existing work 046
+031 mentparadigmhasundergoneanevolution¡ªfrom converges on two principal lines of inquiry. The 047
+032 conventionalpreferencealignment(Ouyangetal., first concerns the phenomenon of Personalized 048
+033 2022) anchored in general human values to an Jailbreaking (Li et al., 2025), wherein the injec- 049
+034 emerging emphasis on personalized alignment tionofindividuatedpersonas¡ªparticularlythose 050
+035 (Guan et al., 2025), wherein models are progres- embodyingmarginalizedoccupationalidentitiesor 051
+036 sivelytailoredtoservenotbroadpopulationsbut psychologicallydistressedconditions¡ªcanevoke 052
+037 distinctindividuals. AsisdemonstratedinFigure profoundempatheticresponsesinLLMs. Suchem- 053
+038 1,thistransitionsurfacesacriticaltension: whether pathymay,inturn,circumventthemodels¡¯generic 054
+039 anexcessivepursuitofpersonalizationmayinad- safetyguardrails,elicitingoutputsthatcontravene 055
+040 vertently engender latent safety risks? Framed established safety values. The second line of in- 056
+041 moreprecisely,whatconstitutesaprincipledequi- quiry,i.e.,PersonalizedMaladaptation(Wuetal., 057
+042 libriumbetweenthecompetingdemandsofsafety 2026),addressesthealignmentofmodelswithid- 058
+1
+============================================================
