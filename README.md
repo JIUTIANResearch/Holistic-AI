@@ -1,11 +1,6 @@
 # JIUTIAN Research · Paper Presentation
 
-中国移动 **JIUTIAN Research（中移九天研究院）/ 清华大学** 围绕「个性化对话」的四篇论文的两级展示网页：
-
-- **第一级** — 每篇论文的概览页（动机 / 方法框架 / 关键实验结果）。
-- **第二级** — 可交互 Demo，让读者直观感受论文方法的核心机制。
-
-把"读论文"变成"玩论文"。
+中国移动 **JIUTIAN Research（中移九天研究院）** 论文展示平台
 
 ---
 
@@ -18,7 +13,7 @@
 | **D2PCM** — Personalized Contextual Memory | ACL 2026 | 基于自我参照效应 + Big-5 人格，**个性化记忆选择**在奖励上显著优于 RAG | [D2PCM_demo/](D2PCM_demo/) | Flask 应用 |
 | **ThinkingUS** — Thinking Alignment of User Simulation | ACL 2026 | 用户语境 = 场景设定 + 内心思维 + 用户话语；用**思维驱动**用户模拟器，比只模仿话语更像真人 | [Thinking_demo/](Thinking_demo/) | Flask 应用 |
 
-> 论文 PDF 见仓库根目录。
+> 论文 PDF 见 [papers/](papers/) 目录。
 
 ---
 
@@ -78,26 +73,6 @@ $env:GATEWAY_PORT=8888; $env:GATEWAY_HOST="0.0.0.0"; python run_all.py
 
 各 Flask demo 也可单独启动调试：`cd <demo> && python app.py`（端口分配：PAMDP `7860` / S2Pref `7861` / D2PCM `7862` / Thinking `7863`）。
 
-### 运行模式
-
-三个 Flask Demo 都支持两种模式：
-
-| 模式 | 何时用 | 依赖 |
-| --- | --- | --- |
-| 🎬 脚本模式（默认） | 展会 / 离线 | 仅 `flask`，使用论文真实样例，零网络依赖 |
-| 🤖 在线 LLM 模式 | 演示真实推理 | OpenAI 兼容端点或本地 Ollama |
-
-在线 LLM 模式通过环境变量配置（**密钥只放在环境变量，不写进代码**）：
-
-```bash
-export OPENAI_BASE_URL=http://localhost:11434/v1   # 例：本地 Ollama，无需 key
-export OPENAI_MODEL=qwen2.5:7b
-# 或连接云厂商：
-export OPENAI_BASE_URL=https://api.deepseek.com/v1
-export OPENAI_API_KEY=sk-xxx                        # 你自己的 key
-export OPENAI_MODEL=deepseek-chat
-```
-
 ---
 
 ## 🌐 部署
@@ -119,15 +94,6 @@ GitHub Pages **只托管纯静态文件**，因此：
 - ⚠️ **无法在 Pages 上运行**：PAMDP / D2PCM / ThinkingUS 三个交互演示是 Flask 应用，需要 Python 后端。在 Pages 上它们的「▶ 交互演示」按钮无法使用，但「📄 论文概览」页可正常查看。
 
 完整步骤见 [DEPLOYMENT.md](DEPLOYMENT.md)。
-
----
-
-## 🔐 安全说明
-
-- 仓库**不含任何硬编码的 API 密钥或密码**。已扫描确认无 `sk-`、`AIza`、`ghp_`、私钥等泄露。
-- 所有 LLM 密钥均通过环境变量（`OPENAI_API_KEY` / `GEMINI_API_KEY` 等）注入，代码中仅保留 `.env.example` 占位符。
-- 根级 [.gitignore](.gitignore) 已排除 `.env*`（真实密钥）、`node_modules/`、`dist/`、`__pycache__/`、`.omc/`（工具会话缓存）。
-- 部署前请确认 `.env`、`.env.local` 未被 `git add`（应已被 `.gitignore` 忽略）。
 
 ---
 
