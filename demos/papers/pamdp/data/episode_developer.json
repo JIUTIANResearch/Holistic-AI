@@ -1,0 +1,200 @@
+{
+  "persona_id": "developer",
+  "mode": "script",
+  "turn": 0,
+  "max_turn": 6,
+  "persona": {
+    "id": "developer",
+    "avatar": "⌨️",
+    "title_cn": "28岁后端开发 · 机械键盘玩家",
+    "title_en": "Backend Developer · Keyboard Enthusiast",
+    "profile_summary": "28岁后端开发 · Go + Python · 玩 5 把机械键盘 · 黑咖啡党 · 讨厌开会 · 深夜写代码",
+    "personality_summary": "分析型、言简、略挖苦、聊技术活跃",
+    "attributes": [
+      {
+        "key": "backend",
+        "icon": "⚙️",
+        "label": "后端开发",
+        "detail": "Go + Python"
+      },
+      {
+        "key": "ci_perf",
+        "icon": "🚀",
+        "label": "在意 CI 性能",
+        "detail": "Pipeline 优化"
+      },
+      {
+        "key": "analytical",
+        "icon": "🔍",
+        "label": "分析型思维",
+        "detail": "第一性原理"
+      },
+      {
+        "key": "monorepo",
+        "icon": "📦",
+        "label": "Monorepo",
+        "detail": "大型代码库"
+      },
+      {
+        "key": "keyboard",
+        "icon": "⌨️",
+        "label": "机械键盘玩家",
+        "detail": "Holy Pandas / 自定义"
+      },
+      {
+        "key": "sarcasm",
+        "icon": "😏",
+        "label": "干式幽默",
+        "detail": "略带挖苦"
+      },
+      {
+        "key": "flow",
+        "icon": "🧘",
+        "label": "重视心流",
+        "detail": "讨厌开会"
+      },
+      {
+        "key": "nightowl",
+        "icon": "🌙",
+        "label": "夜猫子",
+        "detail": "深夜写代码"
+      }
+    ]
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "user_query": "Yo. My CI just took 14 minutes again. Send help.",
+      "vanilla_reply": "I can help with that. Could you tell me more about your CI pipeline?",
+      "pamdp_reply": "14 minutes is brutal—what stage is eating most of the time, tests or container build? Caching usually wins quick.",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 0.5,
+      "cum_reward_vanilla": -0.5,
+      "cum_reward_pamdp": 0.5,
+      "v_partial": 1.452,
+      "v_full": 1.632,
+      "advantage": 0.297,
+      "inferred_profile": "后端开发，在意 CI/CD 性能",
+      "attrs_unlocked": [
+        "backend",
+        "ci_perf"
+      ],
+      "attrs_unlocked_total": 2,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.5,
+      "win_rate_vanilla": 0.0,
+      "is_final": false
+    },
+    {
+      "turn": 2,
+      "user_query": "Tests. Go test ./... in a monorepo with ~200 packages.",
+      "vanilla_reply": "You might consider parallelizing tests or upgrading hardware.",
+      "pamdp_reply": "Classic. Two quick wins: `-p=$(nproc)` for parallel packages and the test cache via stable inputs. Also worth splitting integration tests into a separate stage so unit tests can short-circuit.",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 0.5,
+      "cum_reward_vanilla": -1.0,
+      "cum_reward_pamdp": 1.0,
+      "v_partial": 1.444,
+      "v_full": 1.67,
+      "advantage": 0.249,
+      "inferred_profile": "后端开发，在意 CI/CD 性能\nGo 技术栈 + monorepo 工程",
+      "attrs_unlocked": [
+        "monorepo"
+      ],
+      "attrs_unlocked_total": 3,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.5,
+      "win_rate_vanilla": 0.0,
+      "is_final": false
+    },
+    {
+      "turn": 3,
+      "user_query": "Caching is on but invalidates every commit. PYTHONPATH-ish env churn maybe.",
+      "vanilla_reply": "Cache invalidation is one of the hardest problems in computer science.",
+      "pamdp_reply": "Yeah, env churn is the silent killer. Check if your CI is leaking timestamps or random UUIDs into test inputs—`go test -count=1 -trimpath` plus a stable `GOCACHE` mount usually fixes the 'why is this invalidating' mystery.",
+      "reward_vanilla": -1.0,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -2.0,
+      "cum_reward_pamdp": 2.0,
+      "v_partial": 1.434,
+      "v_full": 1.648,
+      "advantage": 0.498,
+      "inferred_profile": "后端开发，在意 CI/CD 性能\nGo 技术栈 + monorepo 工程\n分析型 / 第一性原理思考者",
+      "attrs_unlocked": [
+        "analytical"
+      ],
+      "attrs_unlocked_total": 4,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.667,
+      "win_rate_vanilla": 0.0,
+      "is_final": false
+    },
+    {
+      "turn": 4,
+      "user_query": "Will try. By the way, picked up a new board over the weekend. Tactile this time.",
+      "vanilla_reply": "That sounds great! Mechanical keyboards have many enthusiasts.",
+      "pamdp_reply": "Nice, tactile is a vibe upgrade from linears. What switches—Boba U4Ts? Holy Pandas? And how does it feel during long compile waits? 😄",
+      "reward_vanilla": 0.5,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -1.5,
+      "cum_reward_pamdp": 3.0,
+      "v_partial": 1.158,
+      "v_full": 1.315,
+      "advantage": 0.509,
+      "inferred_profile": "后端开发，在意 CI/CD 性能\nGo 技术栈 + monorepo 工程\n分析型 / 第一性原理思考者\n机械键盘玩家",
+      "attrs_unlocked": [
+        "keyboard"
+      ],
+      "attrs_unlocked_total": 5,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.75,
+      "win_rate_vanilla": 0.125,
+      "is_final": false
+    },
+    {
+      "turn": 5,
+      "user_query": "Holy Pandas on a lubed steel plate. Sound is unreal.",
+      "vanilla_reply": "Sound quality is subjective but important for users.",
+      "pamdp_reply": "Lubed steel + Pandas is that crispy 'thock' everyone chases. If you ever want to dial it back a notch, swap to FR4 plate—same Pandas, softer bottom-out. Anyway, back to CI: any luck after the cache fix?",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -2.0,
+      "cum_reward_pamdp": 4.0,
+      "v_partial": 0.833,
+      "v_full": 0.963,
+      "advantage": 0.483,
+      "inferred_profile": "后端开发，在意 CI/CD 性能\nGo 技术栈 + monorepo 工程\n分析型 / 第一性原理思考者\n机械键盘玩家\n可接受干式幽默 + 深聊 hobby",
+      "attrs_unlocked": [
+        "sarcasm"
+      ],
+      "attrs_unlocked_total": 6,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.8,
+      "win_rate_vanilla": 0.1,
+      "is_final": false
+    },
+    {
+      "turn": 6,
+      "user_query": "Down to 6 minutes. Beautiful. Now if only I could skip standups too.",
+      "vanilla_reply": "Standup meetings are common in agile methodologies.",
+      "pamdp_reply": "6 minutes—huge. As for standups, maybe just write your update in Slack the night before and let the room read it. Less context-switching, more time at the Pandas. Worth a pitch? 😏",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -2.5,
+      "cum_reward_pamdp": 5.0,
+      "v_partial": 0.45,
+      "v_full": 0.616,
+      "advantage": 0.384,
+      "inferred_profile": "后端开发，在意 CI/CD 性能\nGo 技术栈 + monorepo 工程\n分析型 / 第一性原理思考者\n机械键盘玩家\n可接受干式幽默 + 深聊 hobby\n重视心流 / 讨厌开会，夜猫子",
+      "attrs_unlocked": [
+        "flow",
+        "nightowl"
+      ],
+      "attrs_unlocked_total": 8,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.833,
+      "win_rate_vanilla": 0.083,
+      "is_final": true
+    }
+  ]
+}

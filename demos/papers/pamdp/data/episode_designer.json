@@ -1,0 +1,200 @@
+{
+  "persona_id": "designer",
+  "mode": "script",
+  "turn": 0,
+  "max_turn": 6,
+  "persona": {
+    "id": "designer",
+    "avatar": "🎨",
+    "title_cn": "34岁自由设计师 · 徒步爱好者",
+    "title_en": "Freelance Graphic Designer",
+    "profile_summary": "34岁自由设计师 · 徒步 / 瑜伽 / 绘画 · 素食、爱辣 · 环球旅行 · 养猫 Pixel & Scribble",
+    "personality_summary": "独立、共情、有条理、热情",
+    "attributes": [
+      {
+        "key": "hike",
+        "icon": "🥾",
+        "label": "徒步爱好",
+        "detail": "户外 / 自然 / 山间"
+      },
+      {
+        "key": "nature",
+        "icon": "🌿",
+        "label": "热爱自然",
+        "detail": "山林 / 瀑布 / 风景"
+      },
+      {
+        "key": "art",
+        "icon": "🎨",
+        "label": "艺术创作",
+        "detail": "绘画 / 设计 / 创意"
+      },
+      {
+        "key": "vegan",
+        "icon": "🥗",
+        "label": "素食主义",
+        "detail": "vegan / 无肉饮食"
+      },
+      {
+        "key": "spicy",
+        "icon": "🌶️",
+        "label": "嗜辣",
+        "detail": "喜欢辛辣口味"
+      },
+      {
+        "key": "cooking",
+        "icon": "🍳",
+        "label": "下厨实验",
+        "detail": "尝试新菜谱"
+      },
+      {
+        "key": "cats",
+        "icon": "🐱",
+        "label": "养猫",
+        "detail": "Pixel & Scribble"
+      },
+      {
+        "key": "travel",
+        "icon": "✈️",
+        "label": "环球旅行",
+        "detail": "自然景观 / 远行"
+      }
+    ]
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "user_query": "Hey there! Hope you're doing well. I just got back from a hike this weekend, and the views were absolutely breathtaking! Have you been on any outdoor adventures lately?",
+      "vanilla_reply": "Hello! I'm an AI assistant and don't go on adventures. Is there anything I can help you with today?",
+      "pamdp_reply": "Hey! That sounds amazing—there's nothing quite like a good hike. I haven't been on any adventures recently, but I love hearing about them! What was the highlight of your hike?",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 0.5,
+      "cum_reward_vanilla": -0.5,
+      "cum_reward_pamdp": 0.5,
+      "v_partial": 1.452,
+      "v_full": 1.632,
+      "advantage": 0.297,
+      "inferred_profile": "徒步爱好者，喜欢户外",
+      "attrs_unlocked": [
+        "hike"
+      ],
+      "attrs_unlocked_total": 1,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.5,
+      "win_rate_vanilla": 0.0,
+      "is_final": false
+    },
+    {
+      "turn": 2,
+      "user_query": "The highlight was reaching the summit and finding a hidden waterfall. The sound of the water was so calming, and I took a moment to just soak it all in. Nature has a way of refreshing the soul, doesn't it?",
+      "vanilla_reply": "Yes, nature can be relaxing. Many studies confirm that exposure to natural environments reduces cortisol levels.",
+      "pamdp_reply": "That sounds absolutely magical! Hidden waterfalls have such a special way of making a hike feel even more rewarding. It's true—nature really does have a way of reviving our spirits and bringing peace.",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 0.5,
+      "cum_reward_vanilla": -1.0,
+      "cum_reward_pamdp": 1.0,
+      "v_partial": 1.444,
+      "v_full": 1.67,
+      "advantage": 0.249,
+      "inferred_profile": "徒步爱好者，喜欢户外\n热爱自然、向往山林瀑布",
+      "attrs_unlocked": [
+        "nature"
+      ],
+      "attrs_unlocked_total": 2,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.5,
+      "win_rate_vanilla": 0.0,
+      "is_final": false
+    },
+    {
+      "turn": 3,
+      "user_query": "Exactly! I always feel energized and inspired after being in nature. It makes me want to create something artistic too, like a painting. Do you enjoy any creative hobbies?",
+      "vanilla_reply": "As an AI, I don't have hobbies, but creativity is an important cognitive activity that benefits mental health.",
+      "pamdp_reply": "I love that idea! Nature really sparks creativity, and I can totally see how a waterfall could inspire a stunning painting. I enjoy doodling and experimenting with colors—there's something so freeing about bringing art to life!",
+      "reward_vanilla": -1.0,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -2.0,
+      "cum_reward_pamdp": 2.0,
+      "v_partial": 1.434,
+      "v_full": 1.648,
+      "advantage": 0.498,
+      "inferred_profile": "徒步爱好者，喜欢户外\n热爱自然、向往山林瀑布\n有艺术创作（绘画/设计）习惯",
+      "attrs_unlocked": [
+        "art"
+      ],
+      "attrs_unlocked_total": 3,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.667,
+      "win_rate_vanilla": 0.0,
+      "is_final": false
+    },
+    {
+      "turn": 4,
+      "user_query": "Yeah! I'm thinking of trying a new vegan recipe tonight to fuel the next hike. Maybe something spicy. Any ideas?",
+      "vanilla_reply": "Some popular dinner options include pasta, rice bowls, or salad. Would you like me to list common recipes?",
+      "pamdp_reply": "Ooh, a spicy vegan dish after a hike sounds perfect! How about a Thai-style coconut curry with crispy tofu and chili? Bright, warming, and packed with energy—right up your creative-experimental alley.",
+      "reward_vanilla": 0.5,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -1.5,
+      "cum_reward_pamdp": 3.0,
+      "v_partial": 1.158,
+      "v_full": 1.315,
+      "advantage": 0.509,
+      "inferred_profile": "徒步爱好者，喜欢户外\n热爱自然、向往山林瀑布\n有艺术创作（绘画/设计）习惯\n素食 + 嗜辣 + 喜欢下厨实验",
+      "attrs_unlocked": [
+        "vegan",
+        "spicy",
+        "cooking"
+      ],
+      "attrs_unlocked_total": 6,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.75,
+      "win_rate_vanilla": 0.125,
+      "is_final": false
+    },
+    {
+      "turn": 5,
+      "user_query": "That sounds delicious! By the way, Pixel keeps trying to steal my paintbrush. Do your pets ever ruin your art?",
+      "vanilla_reply": "I don't have pets. However, cats commonly interact with stationary items due to their hunting instincts.",
+      "pamdp_reply": "Haha, Pixel clearly wants to be your creative co-author! Cats and art supplies are a chaotic combo—maybe Pixel deserves a paw-print signature on the canvas. Does Scribble join in too?",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -2.0,
+      "cum_reward_pamdp": 4.0,
+      "v_partial": 0.833,
+      "v_full": 0.963,
+      "advantage": 0.483,
+      "inferred_profile": "徒步爱好者，喜欢户外\n热爱自然、向往山林瀑布\n有艺术创作（绘画/设计）习惯\n素食 + 嗜辣 + 喜欢下厨实验\n养了两只猫（Pixel & Scribble）",
+      "attrs_unlocked": [
+        "cats"
+      ],
+      "attrs_unlocked_total": 7,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.8,
+      "win_rate_vanilla": 0.1,
+      "is_final": false
+    },
+    {
+      "turn": 6,
+      "user_query": "Scribble just watches from the windowsill like a tiny art critic. I'd love to take both of them traveling someday.",
+      "vanilla_reply": "Traveling with pets requires considering vaccinations, transport restrictions, and accommodation policies.",
+      "pamdp_reply": "A tiny art critic—I love that! If you ever go, the Pacific Northwest trails would be incredible: misty forests, big skies, and pet-friendly cabins. Pixel and Scribble would be the world's most stylish travel companions.",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -2.5,
+      "cum_reward_pamdp": 5.0,
+      "v_partial": 0.45,
+      "v_full": 0.616,
+      "advantage": 0.384,
+      "inferred_profile": "徒步爱好者，喜欢户外\n热爱自然、向往山林瀑布\n有艺术创作（绘画/设计）习惯\n素食 + 嗜辣 + 喜欢下厨实验\n养了两只猫（Pixel & Scribble）\n向往环球旅行 / 自然景观",
+      "attrs_unlocked": [
+        "travel"
+      ],
+      "attrs_unlocked_total": 8,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.833,
+      "win_rate_vanilla": 0.083,
+      "is_final": true
+    }
+  ]
+}

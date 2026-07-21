@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D2PCM · 个性化记忆选择交互演示</title>
+<link rel="stylesheet" href="../../shell/shell.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">D2<span class="logo-glow">PCM</span></span>
+    <span class="subtitle">个性化记忆选择&nbsp;vs&nbsp;RAG&nbsp;·&nbsp;Personalized&nbsp;Contextual&nbsp;Memory</span>
+  </div>
+  <div class="meta">
+    <span class="tag">中移九天研究院</span>
+    <span class="tag accent">ACL&nbsp;2026</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 画像 + Big5 -->
+  <section class="card persona-card">
+    <div class="card-head">
+      <span class="icon">🧬</span>
+      <span class="card-title">隐藏用户画像 · Big-5</span>
+      <span class="grow"></span>
+      <button id="reveal-btn" class="btn tiny">显示</button>
+    </div>
+    <div class="persona-row">
+      <div class="big5-wrap"><canvas id="big5-radar" width="240" height="240"></canvas></div>
+      <div id="persona-desc" class="persona-desc masked">—</div>
+    </div>
+  </section>
+
+  <!-- 当前轮 -->
+  <section class="card">
+    <div class="card-head">
+      <span class="icon">💬</span>
+      <span class="card-title">用户提问</span>
+      <span class="grow"></span>
+      <span id="turn-indicator" class="dim">轮次 0 / 0</span>
+    </div>
+    <div id="query" class="user-req">—</div>
+
+    <div class="mem-head">
+      <span class="card-title" style="font-size:14px">📥 记忆 chunk（5 选 1）</span>
+      <span class="dim">★ = 与画像契合的 Personalized Contextual Memory</span>
+    </div>
+    <div id="mem-list" class="mem-list"></div>
+
+    <div class="two-col" style="margin-top:16px">
+      <div class="col baseline">
+        <div class="col-head">🔎 RAG <span class="dim">(按相似度选)</span></div>
+        <div id="resp-rag" class="bubble"></div>
+        <div class="reward-pill bad" id="reward-rag"></div>
+      </div>
+      <div class="col ours">
+        <div class="col-head">✨ D2PCM <span class="accent">(选画像契合记忆)</span></div>
+        <div id="resp-d2pcm" class="bubble"></div>
+        <div class="reward-pill good" id="reward-d2pcm"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 指标 -->
+  <section class="card">
+    <div class="card-head">
+      <span class="icon">📊</span>
+      <span class="card-title">累计指标 · D2PCM vs RAG</span>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-label">画像记忆命中率
+          <span class="help" data-tip="选中记忆恰为画像契合记忆的轮次占比。论文 Table 3：D2PCM 将该比例显著提升（Llama-8b 升至 20.93%）。">?</span></div>
+        <div class="kpi-vs"><span id="hit-d" class="good">0%</span><span class="dim">vs</span><span id="hit-r" class="bad">0%</span></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">记忆选择 reward
+          <span class="help" data-tip="所选记忆的累计 reward。论文 Table 3：相比 RAG，记忆选择 reward +0.6412（+15.9%）。">?</span></div>
+        <div class="kpi-vs"><span id="mrew-d" class="good">0.0</span><span class="dim">vs</span><span id="mrew-r" class="bad">0.0</span></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">回复生成 reward
+          <span class="help" data-tip="基于所选记忆生成回复的累计 reward。论文 Table 3：response reward +0.4130（+16.5%）。">?</span></div>
+        <div class="kpi-vs"><span id="rrew-d" class="good">0.0</span><span class="dim">vs</span><span id="rrew-r" class="bad">0.0</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="control-bar">
+  <div class="control-group">
+    <label class="dim">画像</label>
+    <select id="persona-select" class="ctrl"></select>
+  </div>
+  <div class="control-buttons">
+    <button id="step-btn" class="btn">⏭ 下一轮</button>
+    <button id="auto-btn" class="btn">⏯ 自动播放</button>
+    <button id="reset-btn" class="btn">🔄 重置</button>
+  </div>
+  <div id="status" class="status dim">就绪</div>
+</footer>
+
+<script src="../../shell/nav.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

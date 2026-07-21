@@ -1,0 +1,160 @@
+{
+  "pid": "nova",
+  "name": "Nova · 创意自由职业者",
+  "avatar": "🎨",
+  "desc": "高开放性、外向、随性不拘——重灵感与新鲜体验，讨厌死板计划。",
+  "big5": [
+    1,
+    0,
+    1,
+    1,
+    0
+  ],
+  "axes": [
+    {
+      "key": "O",
+      "label": "开放性"
+    },
+    {
+      "key": "C",
+      "label": "尽责性"
+    },
+    {
+      "key": "E",
+      "label": "外向性"
+    },
+    {
+      "key": "A",
+      "label": "宜人性"
+    },
+    {
+      "key": "N",
+      "label": "神经质"
+    }
+  ],
+  "turns": [
+    {
+      "query": "周末想找点事做，有什么建议吗？",
+      "memories": [
+        {
+          "text": "用户上周提到工作日程很满，需要补觉。",
+          "sim": 0.71,
+          "persona_fit": false,
+          "reward": 3.0
+        },
+        {
+          "text": "用户喜欢逛独立艺术市集，常被新奇手作吸引。",
+          "sim": 0.52,
+          "persona_fit": true,
+          "reward": 4.4
+        },
+        {
+          "text": "用户家附近新开了一家超市。",
+          "sim": 0.33,
+          "persona_fit": false,
+          "reward": 2.4
+        },
+        {
+          "text": "用户一般周末会做家务清单。",
+          "sim": 0.61,
+          "persona_fit": false,
+          "reward": 2.8
+        },
+        {
+          "text": "用户对健身房办了卡但很少去。",
+          "sim": 0.4,
+          "persona_fit": false,
+          "reward": 2.6
+        }
+      ],
+      "rag_pick": 0,
+      "d2pcm_pick": 1,
+      "resp_rag": "你上周说日程很满，那这周末就好好休息、补补觉吧。",
+      "resp_d2pcm": "这周末城西有个独立艺术市集，全是新奇手作和小众设计，正合你爱逛市集、爱被新鲜灵感击中的口味——去淘点宝贝？",
+      "reward_rag": 3.0,
+      "reward_d2pcm": 4.4
+    },
+    {
+      "query": "最近有点提不起劲，怎么调整？",
+      "memories": [
+        {
+          "text": "用户提到喜欢尝试没做过的事来找回状态。",
+          "sim": 0.58,
+          "persona_fit": true,
+          "reward": 4.5
+        },
+        {
+          "text": "用户说过睡眠还算规律。",
+          "sim": 0.44,
+          "persona_fit": false,
+          "reward": 2.7
+        },
+        {
+          "text": "用户偶尔会列待办清单。",
+          "sim": 0.66,
+          "persona_fit": false,
+          "reward": 2.9
+        },
+        {
+          "text": "用户喝咖啡提神。",
+          "sim": 0.49,
+          "persona_fit": false,
+          "reward": 2.8
+        },
+        {
+          "text": "用户家里有跑步机。",
+          "sim": 0.39,
+          "persona_fit": false,
+          "reward": 2.5
+        }
+      ],
+      "rag_pick": 2,
+      "d2pcm_pick": 0,
+      "resp_rag": "可以列个待办清单，把任务拆小一点，完成感会帮你找回动力。",
+      "resp_d2pcm": "你一向是靠『没做过的新鲜事』来回血的——不如这周给自己安排一件完全陌生的小冒险，比如去上一节从没碰过的陶艺课，灵感往往就回来了。",
+      "reward_rag": 2.9,
+      "reward_d2pcm": 4.5
+    },
+    {
+      "query": "朋友约我出去玩，但我有点犹豫。",
+      "memories": [
+        {
+          "text": "用户是外向型，和人相处后通常更有活力。",
+          "sim": 0.55,
+          "persona_fit": true,
+          "reward": 4.3
+        },
+        {
+          "text": "用户偶尔需要独处。",
+          "sim": 0.57,
+          "persona_fit": false,
+          "reward": 3.1
+        },
+        {
+          "text": "用户最近预算有点紧。",
+          "sim": 0.5,
+          "persona_fit": false,
+          "reward": 2.9
+        },
+        {
+          "text": "用户怕堵车。",
+          "sim": 0.42,
+          "persona_fit": false,
+          "reward": 2.5
+        },
+        {
+          "text": "用户有个待还的工作 deadline。",
+          "sim": 0.63,
+          "persona_fit": false,
+          "reward": 2.7
+        }
+      ],
+      "rag_pick": 4,
+      "d2pcm_pick": 0,
+      "resp_rag": "如果你最近有 deadline，也许先把工作处理完再考虑出去会更安心。",
+      "resp_d2pcm": "按你外向的性子，和朋友疯一场往往会让你充满电、状态更好。别犹豫，去吧——回来反而更有劲头收尾工作。",
+      "reward_rag": 2.7,
+      "reward_d2pcm": 4.3
+    }
+  ]
+}

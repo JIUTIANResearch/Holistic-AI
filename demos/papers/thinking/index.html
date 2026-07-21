@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThinkingUS · 用户思维对齐交互演示</title>
+<link rel="stylesheet" href="../../shell/shell.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">Thinking<span class="logo-glow">US</span></span>
+    <span class="subtitle">揭示隐藏的用户内心思维&nbsp;·&nbsp;Scenario-Oriented&nbsp;User&nbsp;Simulation</span>
+  </div>
+  <div class="meta">
+    <span class="tag">中移九天研究院</span>
+    <span class="tag accent">ACL&nbsp;2026</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 场景设定 -->
+  <section class="card scenario-card">
+    <div class="card-head">
+      <span class="icon">🎬</span>
+      <span class="card-title">场景设定 <span id="scenario-title" class="dim">—</span></span>
+    </div>
+    <div class="scene-grid">
+      <div class="scene-cell"><div class="scene-label">🎯 用户目标</div><div id="scene-goal">—</div></div>
+      <div class="scene-cell"><div class="scene-label">🗺️ 背景</div><div id="scene-bg">—</div></div>
+      <div class="scene-cell"><div class="scene-label">💗 情绪态度</div><div id="scene-emotion">—</div></div>
+    </div>
+  </section>
+
+  <!-- 对话流 -->
+  <section class="card">
+    <div class="card-head">
+      <span class="icon">💬</span>
+      <span class="card-title">对话流</span>
+      <span class="dim">点击 💭 揭示用户内心思维</span>
+      <span class="grow"></span>
+      <label class="rp-toggle"><input type="checkbox" id="rp-toggle"> 对比 Role-play 基线</label>
+    </div>
+    <div id="dialog" class="dialog"></div>
+    <div class="dialog-controls">
+      <button id="step-btn" class="btn">⏭ 下一轮</button>
+      <button id="auto-btn" class="btn">⏯ 自动播放</button>
+      <button id="reveal-all-btn" class="btn">👁 揭示全部思维</button>
+      <button id="reset-btn" class="btn">🔄 重置</button>
+    </div>
+  </section>
+
+  <!-- 相似度趋势 -->
+  <section class="card">
+    <div class="card-head">
+      <span class="icon">📈</span>
+      <span class="card-title">真人相似度趋势 <span class="dim">趋势对齐论文 win-rate 评测</span></span>
+      <span class="grow"></span>
+      <span class="sim-legend"><span class="dot us"></span>ThinkingUS&nbsp;&nbsp;<span class="dot rp"></span>Role-play</span>
+    </div>
+    <div class="sim-wrap"><canvas id="sim-chart" width="900" height="200"></canvas></div>
+  </section>
+
+</main>
+
+<footer class="control-bar">
+  <div class="control-group">
+    <label class="dim">场景</label>
+    <select id="scenario-select" class="ctrl"></select>
+  </div>
+  <div id="status" class="status dim">就绪</div>
+</footer>
+
+<script src="../../shell/nav.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

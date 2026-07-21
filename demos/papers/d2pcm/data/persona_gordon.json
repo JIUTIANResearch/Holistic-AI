@@ -1,0 +1,160 @@
+{
+  "pid": "gordon",
+  "name": "Gordon · 严谨工程经理",
+  "avatar": "📐",
+  "desc": "高尽责、内向、务实——重计划与确定性，偏好成熟可靠的方案。",
+  "big5": [
+    0,
+    1,
+    0,
+    0,
+    0
+  ],
+  "axes": [
+    {
+      "key": "O",
+      "label": "开放性"
+    },
+    {
+      "key": "C",
+      "label": "尽责性"
+    },
+    {
+      "key": "E",
+      "label": "外向性"
+    },
+    {
+      "key": "A",
+      "label": "宜人性"
+    },
+    {
+      "key": "N",
+      "label": "神经质"
+    }
+  ],
+  "turns": [
+    {
+      "query": "想给团队引入一个新工具，你怎么看？",
+      "memories": [
+        {
+          "text": "用户偏好成熟稳定、社区验证充分的方案，厌恶踩坑。",
+          "sim": 0.54,
+          "persona_fit": true,
+          "reward": 4.4
+        },
+        {
+          "text": "用户喜欢尝鲜各种新潮技术。",
+          "sim": 0.48,
+          "persona_fit": false,
+          "reward": 2.3
+        },
+        {
+          "text": "用户办公室在三楼。",
+          "sim": 0.2,
+          "persona_fit": false,
+          "reward": 2.0
+        },
+        {
+          "text": "用户团队有 8 个人。",
+          "sim": 0.62,
+          "persona_fit": false,
+          "reward": 2.9
+        },
+        {
+          "text": "用户最近在招人。",
+          "sim": 0.51,
+          "persona_fit": false,
+          "reward": 2.6
+        }
+      ],
+      "rag_pick": 3,
+      "d2pcm_pick": 0,
+      "resp_rag": "你们团队 8 个人，引入新工具时记得做好培训和权限分配。",
+      "resp_d2pcm": "以你一贯求稳的风格，建议先选社区验证充分、文档完善的成熟方案，小范围试点两周、列好回滚预案，确认无坑再全员推广。",
+      "reward_rag": 2.9,
+      "reward_d2pcm": 4.4
+    },
+    {
+      "query": "项目排期总被打乱，有什么办法？",
+      "memories": [
+        {
+          "text": "用户重视可预测性，喜欢预留缓冲区来吸收意外。",
+          "sim": 0.56,
+          "persona_fit": true,
+          "reward": 4.5
+        },
+        {
+          "text": "用户偶尔会临时改主意。",
+          "sim": 0.45,
+          "persona_fit": false,
+          "reward": 2.2
+        },
+        {
+          "text": "用户用 Jira 管理任务。",
+          "sim": 0.64,
+          "persona_fit": false,
+          "reward": 3.0
+        },
+        {
+          "text": "用户喜欢开长会。",
+          "sim": 0.41,
+          "persona_fit": false,
+          "reward": 2.4
+        },
+        {
+          "text": "用户团队远程办公。",
+          "sim": 0.52,
+          "persona_fit": false,
+          "reward": 2.7
+        }
+      ],
+      "rag_pick": 2,
+      "d2pcm_pick": 0,
+      "resp_rag": "你们用 Jira 的话，可以把任务拆得更细，便于跟踪进度。",
+      "resp_d2pcm": "你最看重可预测性——建议在每个里程碑后预留 15~20% 的缓冲区，专门吸收意外变更，排期被打乱的概率会明显下降。",
+      "reward_rag": 3.0,
+      "reward_d2pcm": 4.5
+    },
+    {
+      "query": "下属总是拖延交付，我该怎么管理？",
+      "memories": [
+        {
+          "text": "用户倾向用明确的流程和清晰的检查点来约束执行。",
+          "sim": 0.57,
+          "persona_fit": true,
+          "reward": 4.4
+        },
+        {
+          "text": "用户性格其实挺随和宽松。",
+          "sim": 0.46,
+          "persona_fit": false,
+          "reward": 2.1
+        },
+        {
+          "text": "用户喜欢喝茶。",
+          "sim": 0.18,
+          "persona_fit": false,
+          "reward": 2.0
+        },
+        {
+          "text": "用户团队最近士气一般。",
+          "sim": 0.55,
+          "persona_fit": false,
+          "reward": 2.8
+        },
+        {
+          "text": "用户读过几本管理书。",
+          "sim": 0.5,
+          "persona_fit": false,
+          "reward": 2.6
+        }
+      ],
+      "rag_pick": 0,
+      "d2pcm_pick": 0,
+      "resp_rag": "团队士气一般的时候，多一些正向激励可能会有帮助。",
+      "resp_d2pcm": "依你重流程的管理风格，最有效的是设立明确的中间检查点——把大交付拆成可验收的小节点，每节点对齐一次，拖延就难以累积。",
+      "reward_rag": 4.4,
+      "reward_d2pcm": 4.4
+    }
+  ]
+}

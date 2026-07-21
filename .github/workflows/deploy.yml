@@ -26,31 +26,29 @@ jobs:
           cache: npm
           cache-dependency-path: safe_v2/package-lock.json
 
-      # 只构建前端静态产物（Pages 用不到 server.ts 后端）
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 构建 S2Pref SPA（Pages 用不到 server.ts 后端）
       - name: Build safe_v2 SPA
         working-directory: safe_v2
         run: |
           npm ci
           npx vite build
 
+      # 生成三个 demo 的脚本模式 JSON 数据（复用现有 engine/scenarios，无外部依赖）
+      - name: Build demos static data
+        run: python demos/build_static.py
+
       - name: Assemble static site
         run: |
           # Pages 根 = site/（Hub 首页 + 四个论文概览页）
           cp -r site _site
-          # 把 S2Pref SPA 放到 /s2pref/ 下，匹配 Hub 里的链接
+          # S2Pref SPA → /s2pref/
           cp -r safe_v2/dist _site/s2pref
-          # 三个 Flask 演示在 Pages 上无法运行，放占位页避免 404
-          for d in pamdp d2pcm thinking; do
-            mkdir -p _site/$d
-            cat > _site/$d/index.html <<'EOF'
-          <!doctype html><meta charset="utf-8"><title>需本地运行</title>
-          <body style="font-family:sans-serif;padding:2rem;background:#0A0A0B;color:#E4E4E7">
-          <h2>此交互演示需要 Python 后端，无法在 GitHub Pages 上运行。</h2>
-          <p>请克隆仓库后本地运行：<code>python run_all.py</code></p>
-          <p><a href="../" style="color:#38BDF8">← 返回首页</a></p>
-          </body>
-          EOF
-          done
+          # 三个交互演示（纯静态）→ /demos/papers/* + /demos/shell/
+          cp -r demos _site/demos
 
       - uses: actions/upload-pages-artifact@v3
         with:

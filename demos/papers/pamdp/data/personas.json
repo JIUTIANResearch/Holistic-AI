@@ -1,0 +1,26 @@
+[
+  {
+    "id": "designer",
+    "avatar": "🎨",
+    "title_cn": "34岁自由设计师 · 徒步爱好者",
+    "title_en": "Freelance Graphic Designer"
+  },
+  {
+    "id": "developer",
+    "avatar": "⌨️",
+    "title_cn": "28岁后端开发 · 机械键盘玩家",
+    "title_en": "Backend Developer · Keyboard Enthusiast"
+  },
+  {
+    "id": "teacher",
+    "avatar": "📖",
+    "title_cn": "68岁退休语文老师 · 喜爱诗词",
+    "title_en": "Retired Chinese Literature Teacher"
+  },
+  {
+    "id": "student",
+    "avatar": "🎒",
+    "title_cn": "17岁高三学生 · 数学薄弱",
+    "title_en": "High-school Senior · Anxious About Math"
+  }
+]

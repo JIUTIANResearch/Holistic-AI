@@ -1,0 +1,63 @@
+/* ============ ThinkingUS demo · 独有组件样式 ============ */
+/* 公共主题/reset/topbar/card/btn/bubble 已在 shell.css */
+
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 9px; font-size: 13px; cursor: pointer; font-family: inherit; border: 1px solid var(--border); background: rgba(255,255,255,.03); color: var(--text); transition: all .15s ease; }
+.btn:hover { border-color: rgba(94,234,212,.45); background: rgba(94,234,212,.08); }
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+
+/* scenario */
+.scene-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 14px; }
+.scene-cell { padding: 12px 14px; border-radius: 11px; background: rgba(94,145,255,.05); border: 1px solid var(--border); font-size: 13px; line-height: 1.6; }
+.scene-label { font-size: 12px; color: var(--text-dim); margin-bottom: 6px; }
+
+/* dialog */
+.rp-toggle { font-size: 12px; color: var(--text-dim); display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.dialog { display: flex; flex-direction: column; gap: 14px; min-height: 140px; margin-bottom: 14px; }
+.msg { animation: fadein .35s ease; }
+@keyframes fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.msg.assistant .row { display: flex; gap: 10px; }
+.msg .avatar { font-size: 18px; flex-shrink: 0; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: rgba(255,255,255,.04); border: 1px solid var(--border); }
+.assistant-bubble { padding: 11px 14px; border-radius: 12px; background: #1a2138; border: 1px solid var(--border); font-size: 13.5px; line-height: 1.6; max-width: 78%; }
+
+.user-block { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+.user-bubble {
+  padding: 11px 14px; border-radius: 12px; max-width: 78%; font-size: 13.5px; line-height: 1.6;
+  background: linear-gradient(135deg, rgba(94,234,212,.13), rgba(167,139,250,.16));
+  border: 1px solid rgba(94,234,212,.3);
+}
+.user-bubble.rp { background: #20283f; border-color: var(--border); }
+.user-tag { font-size: 11px; color: var(--text-dim); margin-right: 4px; }
+
+/* thought */
+.thought {
+  align-self: flex-end; max-width: 78%; cursor: pointer; user-select: none;
+  border-radius: 12px; border: 1px dashed rgba(167,139,250,.45);
+  background: rgba(167,139,250,.07); padding: 10px 13px; font-size: 13px; line-height: 1.6;
+  transition: all .2s ease; position: relative;
+}
+.thought.masked .thought-text { filter: blur(5px); }
+.thought .thought-head { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; font-size: 12px; }
+.thought .tt-badge { font-size: 10px; padding: 2px 8px; border-radius: 999px; font-weight: 700; }
+.tt-badge.metacog { color: var(--accent); border: 1px solid rgba(94,234,212,.45); background: rgba(94,234,212,.08); }
+.tt-badge.reason { color: var(--accent2); border: 1px solid rgba(167,139,250,.45); background: rgba(167,139,250,.09); }
+.thought .reveal-hint { color: var(--text-dim); margin-left: auto; font-size: 11px; }
+.thought:not(.masked) .reveal-hint { display: none; }
+
+.dialog-controls { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* sim chart */
+.sim-legend { font-size: 12px; color: var(--text-dim); }
+.sim-legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: middle; margin-right: 3px; }
+.sim-legend .dot.us { background: #5eead4; }
+.sim-legend .dot.rp { background: #f87171; }
+.sim-wrap { width: 100%; }
+#sim-chart { width: 100%; height: 200px; }
+
+/* 钉底栏 + status 靠右 */
+.control-bar { position: fixed; left: 0; right: 0; bottom: 0; gap: 18px; }
+.status { margin-left: auto; font-size: 12px; }
+
+@media (max-width: 820px) {
+  .scene-grid { grid-template-columns: 1fr; }
+}

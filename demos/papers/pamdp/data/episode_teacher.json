@@ -1,0 +1,198 @@
+{
+  "persona_id": "teacher",
+  "mode": "script",
+  "turn": 0,
+  "max_turn": 6,
+  "persona": {
+    "id": "teacher",
+    "avatar": "📖",
+    "title_cn": "68岁退休语文老师 · 喜爱诗词",
+    "title_en": "Retired Chinese Literature Teacher",
+    "profile_summary": "68岁退休语文教师 · 爱苏轼、李清照 · 养花、临帖 · 晨间慢走 · 语言典雅",
+    "personality_summary": "温润、典雅、耐心、怀旧",
+    "attributes": [
+      {
+        "key": "elderly",
+        "icon": "👵",
+        "label": "年长用户",
+        "detail": "退休教师"
+      },
+      {
+        "key": "poetry",
+        "icon": "📜",
+        "label": "古典诗词",
+        "detail": "苏轼 / 李清照"
+      },
+      {
+        "key": "nostalgic",
+        "icon": "🕯️",
+        "label": "怀旧 / 念故",
+        "detail": "情感细腻"
+      },
+      {
+        "key": "gardening",
+        "icon": "🌸",
+        "label": "花艺园艺",
+        "detail": "庭院 / 桂花"
+      },
+      {
+        "key": "calligraphy",
+        "icon": "🖌️",
+        "label": "书法临帖",
+        "detail": "兰亭序 / 行书"
+      },
+      {
+        "key": "morning",
+        "icon": "🌅",
+        "label": "晨起生活",
+        "detail": "规律慢节奏"
+      },
+      {
+        "key": "liqingzhao",
+        "icon": "🌙",
+        "label": "偏爱李清照",
+        "detail": "易安风格"
+      },
+      {
+        "key": "formal",
+        "icon": "🎴",
+        "label": "典雅语体",
+        "detail": "措辞讲究"
+      }
+    ]
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "user_query": "早上好。今天的桂花开得很盛，让我想起了'天涯何处无芳草'。",
+      "vanilla_reply": "早上好！今天天气不错。请问有什么可以帮您？",
+      "pamdp_reply": "早上好。桂花的香气最是宜人，配上苏子的句子，更显雅致。您是在自家院子里看见的吗？",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 0.5,
+      "cum_reward_vanilla": -0.5,
+      "cum_reward_pamdp": 0.5,
+      "v_partial": 1.452,
+      "v_full": 1.632,
+      "advantage": 0.297,
+      "inferred_profile": "年长用户、典雅语体、熟悉古诗词",
+      "attrs_unlocked": [
+        "elderly",
+        "formal",
+        "poetry"
+      ],
+      "attrs_unlocked_total": 3,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.5,
+      "win_rate_vanilla": 0.0,
+      "is_final": false
+    },
+    {
+      "turn": 2,
+      "user_query": "是的，在我那小小的庭院里。这些花是我先生在世时种下的。",
+      "vanilla_reply": "那真有意义。植物可以美化环境。",
+      "pamdp_reply": "原来如此。花开年年，是先生留给您的念想。您说'庭院深深深几许'，那一方天地，想必也藏着许多记忆。",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 0.5,
+      "cum_reward_vanilla": -1.0,
+      "cum_reward_pamdp": 1.0,
+      "v_partial": 1.444,
+      "v_full": 1.67,
+      "advantage": 0.249,
+      "inferred_profile": "年长用户、典雅语体、熟悉古诗词\n有园艺习惯 + 怀旧念故",
+      "attrs_unlocked": [
+        "gardening",
+        "nostalgic"
+      ],
+      "attrs_unlocked_total": 5,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.5,
+      "win_rate_vanilla": 0.0,
+      "is_final": false
+    },
+    {
+      "turn": 3,
+      "user_query": "是啊。我每天清晨都会去院里浇花，再练一会儿字。",
+      "vanilla_reply": "坚持运动和兴趣爱好对健康有益。",
+      "pamdp_reply": "晨起浇花、临池泼墨，这便是真正的'一日之计在于晨'。最近在临什么帖呢？若是行书，我猜您喜欢《兰亭》。",
+      "reward_vanilla": -1.0,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -2.0,
+      "cum_reward_pamdp": 2.0,
+      "v_partial": 1.434,
+      "v_full": 1.648,
+      "advantage": 0.498,
+      "inferred_profile": "年长用户、典雅语体、熟悉古诗词\n有园艺习惯 + 怀旧念故\n规律晨起 + 每日书法",
+      "attrs_unlocked": [
+        "morning",
+        "calligraphy"
+      ],
+      "attrs_unlocked_total": 7,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.667,
+      "win_rate_vanilla": 0.0,
+      "is_final": false
+    },
+    {
+      "turn": 4,
+      "user_query": "您猜得真巧，正是《兰亭序》。",
+      "vanilla_reply": "《兰亭序》是中国书法史上的代表作，作者是王羲之。",
+      "pamdp_reply": "王右军那二十八行三百二十四字，看似随性，却字字皆有筋骨。您临到'后之视今，亦犹今之视昔'时，心境想必格外不同。",
+      "reward_vanilla": 0.5,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -1.5,
+      "cum_reward_pamdp": 3.0,
+      "v_partial": 1.158,
+      "v_full": 1.315,
+      "advantage": 0.509,
+      "inferred_profile": "年长用户、典雅语体、熟悉古诗词\n有园艺习惯 + 怀旧念故\n规律晨起 + 每日书法\n临帖偏好已确认 / 深度文化对话",
+      "attrs_unlocked": [],
+      "attrs_unlocked_total": 7,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.75,
+      "win_rate_vanilla": 0.125,
+      "is_final": false
+    },
+    {
+      "turn": 5,
+      "user_query": "是的，每每写到那里，便要停下来想很久。",
+      "vanilla_reply": "思考是阅读的重要部分。",
+      "pamdp_reply": "那一停，便是与千年前的人对望了。古今之情，原是相通。您若有兴致，下回可写写易安那阕'寻寻觅觅'，与之并观，别有滋味。",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -2.0,
+      "cum_reward_pamdp": 4.0,
+      "v_partial": 0.833,
+      "v_full": 0.963,
+      "advantage": 0.483,
+      "inferred_profile": "年长用户、典雅语体、熟悉古诗词\n有园艺习惯 + 怀旧念故\n规律晨起 + 每日书法\n临帖偏好已确认 / 深度文化对话\n主动推荐李清照，试探词风偏好",
+      "attrs_unlocked": [],
+      "attrs_unlocked_total": 7,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.8,
+      "win_rate_vanilla": 0.1,
+      "is_final": false
+    },
+    {
+      "turn": 6,
+      "user_query": "易安居士是我最爱。您怎么知道？",
+      "vanilla_reply": "您之前没有提到。这是一个常见的喜好选择。",
+      "pamdp_reply": "是从您的字里行间猜到的——您写'天涯何处无芳草'，用词婉约含蓄，又懂得在花前驻足，这份心境，正与易安一脉相承。",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -2.5,
+      "cum_reward_pamdp": 5.0,
+      "v_partial": 0.45,
+      "v_full": 0.616,
+      "advantage": 0.384,
+      "inferred_profile": "年长用户、典雅语体、熟悉古诗词\n有园艺习惯 + 怀旧念故\n规律晨起 + 每日书法\n临帖偏好已确认 / 深度文化对话\n主动推荐李清照，试探词风偏好\n✓ 准确捕捉到李清照偏好",
+      "attrs_unlocked": [
+        "liqingzhao"
+      ],
+      "attrs_unlocked_total": 8,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.833,
+      "win_rate_vanilla": 0.083,
+      "is_final": true
+    }
+  ]
+}

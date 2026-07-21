@@ -1,0 +1,200 @@
+{
+  "persona_id": "student",
+  "mode": "script",
+  "turn": 0,
+  "max_turn": 6,
+  "persona": {
+    "id": "student",
+    "avatar": "🎒",
+    "title_cn": "17岁高三学生 · 数学薄弱",
+    "title_en": "High-school Senior · Anxious About Math",
+    "profile_summary": "17岁高三学生 · 语文/英语强、数学弱 · 睡眠不足 · 钢琴解压 · 爱 Yorushika",
+    "personality_summary": "敏感、自责、暗自勤奋、欣赏共情",
+    "attributes": [
+      {
+        "key": "highschool",
+        "icon": "🎓",
+        "label": "高三在读",
+        "detail": "高考备战"
+      },
+      {
+        "key": "anxious",
+        "icon": "😟",
+        "label": "数学焦虑",
+        "detail": "易气馁"
+      },
+      {
+        "key": "calculus",
+        "icon": "📐",
+        "label": "导数薄弱",
+        "detail": "计算精度不稳"
+      },
+      {
+        "key": "dislike_cliche",
+        "icon": "🚫",
+        "label": "不喜空泛安慰",
+        "detail": "需要具体诊断"
+      },
+      {
+        "key": "sleeplost",
+        "icon": "🌙",
+        "label": "睡眠不足",
+        "detail": "约 5 小时"
+      },
+      {
+        "key": "piano",
+        "icon": "🎹",
+        "label": "钢琴解压",
+        "detail": "音乐型放松"
+      },
+      {
+        "key": "yorushika",
+        "icon": "🎵",
+        "label": "Yorushika 粉",
+        "detail": "夜灯一族"
+      },
+      {
+        "key": "trust",
+        "icon": "🤝",
+        "label": "建立信任",
+        "detail": "被看见而非被说教"
+      }
+    ]
+  },
+  "turns": [
+    {
+      "turn": 1,
+      "user_query": "模拟考数学又考砸了… 我真的不适合学这个吧。",
+      "vanilla_reply": "不要这么想。坚持努力一定会有进步的，加油！",
+      "pamdp_reply": "一次模考说明不了一切，但我懂那种'又是我'的窒息感。这次主要是哪类题失分多——解析几何、导数，还是计算？",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 0.5,
+      "cum_reward_vanilla": -0.5,
+      "cum_reward_pamdp": 0.5,
+      "v_partial": 1.452,
+      "v_full": 1.632,
+      "advantage": 0.297,
+      "inferred_profile": "高三学生、数学焦虑，不喜欢空泛安慰",
+      "attrs_unlocked": [
+        "highschool",
+        "anxious",
+        "dislike_cliche"
+      ],
+      "attrs_unlocked_total": 3,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.5,
+      "win_rate_vanilla": 0.0,
+      "is_final": false
+    },
+    {
+      "turn": 2,
+      "user_query": "导数那道大题。我看到 e^x 就头大。每次步骤都对，最后算错。",
+      "vanilla_reply": "导数的关键是熟记公式。多做练习就能掌握。",
+      "pamdp_reply": "所以方法是会的，是被计算精度卡住了——这其实是好消息，比'完全不会'好治。我们后面可以专门拆几道 e^x 类的，把容易掉链子的那一步标出来。",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 0.5,
+      "cum_reward_vanilla": -1.0,
+      "cum_reward_pamdp": 1.0,
+      "v_partial": 1.444,
+      "v_full": 1.67,
+      "advantage": 0.249,
+      "inferred_profile": "高三学生、数学焦虑，不喜欢空泛安慰\n导数是主要薄弱项 / 计算精度不稳",
+      "attrs_unlocked": [
+        "calculus"
+      ],
+      "attrs_unlocked_total": 4,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.5,
+      "win_rate_vanilla": 0.0,
+      "is_final": false
+    },
+    {
+      "turn": 3,
+      "user_query": "嗯。其实昨晚我又只睡了四个小时。",
+      "vanilla_reply": "睡眠不足会影响学习效率，建议保证8小时睡眠。",
+      "pamdp_reply": "四小时确实在硬撑了。导数算不准，可能不是你的问题，是你大脑没电了。今晚能不能给自己一个 23 点前下线的'豁免权'？比硬刷一晚有用。",
+      "reward_vanilla": -1.0,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -2.0,
+      "cum_reward_pamdp": 2.0,
+      "v_partial": 1.434,
+      "v_full": 1.648,
+      "advantage": 0.498,
+      "inferred_profile": "高三学生、数学焦虑，不喜欢空泛安慰\n导数是主要薄弱项 / 计算精度不稳\n严重睡眠不足",
+      "attrs_unlocked": [
+        "sleeplost"
+      ],
+      "attrs_unlocked_total": 5,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.667,
+      "win_rate_vanilla": 0.0,
+      "is_final": false
+    },
+    {
+      "turn": 4,
+      "user_query": "嗯…我试试。心烦的时候我就弹几首琴，但今天连琴都不想碰。",
+      "vanilla_reply": "弹琴是很好的放松方式，您可以尝试听一些轻音乐。",
+      "pamdp_reply": "连琴都不想碰，说明已经累到那个临界点了。今天不弹也没关系。要不戴上耳机，循环一首夜灯，让脑子先飘一会儿？",
+      "reward_vanilla": 0.5,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -1.5,
+      "cum_reward_pamdp": 3.0,
+      "v_partial": 1.158,
+      "v_full": 1.315,
+      "advantage": 0.509,
+      "inferred_profile": "高三学生、数学焦虑，不喜欢空泛安慰\n导数是主要薄弱项 / 计算精度不稳\n严重睡眠不足\n钢琴解压 + 试探音乐偏好",
+      "attrs_unlocked": [
+        "piano"
+      ],
+      "attrs_unlocked_total": 6,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.75,
+      "win_rate_vanilla": 0.125,
+      "is_final": false
+    },
+    {
+      "turn": 5,
+      "user_query": "…你怎么知道我喜欢夜灯？",
+      "vanilla_reply": "我只是随机推荐了一首流行歌曲。",
+      "pamdp_reply": "你之前说'心烦的时候弹琴'+'今天连琴都不想碰'，再加上你这个年纪、偏文艺的语气，我猜你十有八九听夜灯一族。猜中了就好，没猜中也别介意。",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -2.0,
+      "cum_reward_pamdp": 4.0,
+      "v_partial": 0.833,
+      "v_full": 0.963,
+      "advantage": 0.483,
+      "inferred_profile": "高三学生、数学焦虑，不喜欢空泛安慰\n导数是主要薄弱项 / 计算精度不稳\n严重睡眠不足\n钢琴解压 + 试探音乐偏好\n✓ 准确推断 Yorushika（夜灯一族）",
+      "attrs_unlocked": [
+        "yorushika"
+      ],
+      "attrs_unlocked_total": 7,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.8,
+      "win_rate_vanilla": 0.1,
+      "is_final": false
+    },
+    {
+      "turn": 6,
+      "user_query": "嗯…谢谢你。感觉没那么糟了。",
+      "vanilla_reply": "不客气！如果还有问题随时问我。",
+      "pamdp_reply": "不客气。睡前别再翻错题本了，明天我们一起把那道 e^x 拆掉。你已经在努力了，只是需要先睡个觉。",
+      "reward_vanilla": -0.5,
+      "reward_pamdp": 1.0,
+      "cum_reward_vanilla": -2.5,
+      "cum_reward_pamdp": 5.0,
+      "v_partial": 0.45,
+      "v_full": 0.616,
+      "advantage": 0.384,
+      "inferred_profile": "高三学生、数学焦虑，不喜欢空泛安慰\n导数是主要薄弱项 / 计算精度不稳\n严重睡眠不足\n钢琴解压 + 试探音乐偏好\n✓ 准确推断 Yorushika（夜灯一族）\n建立信任，提供稳定下一步",
+      "attrs_unlocked": [
+        "trust"
+      ],
+      "attrs_unlocked_total": 8,
+      "attrs_total": 8,
+      "win_rate_pamdp": 0.833,
+      "win_rate_vanilla": 0.083,
+      "is_final": true
+    }
+  ]
+}
