@@ -1,0 +1,24 @@
+# ===== 依赖 / 构建产物 =====
+node_modules/
+dist/
+build/
+__pycache__/
+*.pyc
+*.pyo
+
+# ===== 环境变量与密钥（绝不提交） =====
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# ===== oh-my-claudecode / 工具会话缓存 =====
+.omc/
+
+# ===== 系统 / 编辑器 =====
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

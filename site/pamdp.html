@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PAMDP · 论文概览</title>
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/charts.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">P<span class="glow">A</span>MDP</span>
+    <span class="subtitle">Interact to Persona Alignment via a POMDP</span>
+  </div>
+  <div class="meta"><span class="tag accent">ICLR 2026</span></div>
+</header>
+
+<main class="overview">
+  <a class="back-link" href="index.html">← 返回四论文总览</a>
+  <h1 class="ov-title">PAMDP: Interact to Persona Alignment via a Partially Observable Markov Decision Process</h1>
+  <div class="ov-authors">Zhe Yang, Yi Huang, Si Chen, Xiaoting Wu, Jingyu Yao, Junlan Feng · JIUTIAN Research / 清华大学计算机系 · ICLR 2026</div>
+
+  <!-- 摘要 -->
+  <div class="ov-abstract">
+    <div class="ab-label">摘要 · Abstract</div>
+    <p>
+      理解用户的个体差异并在交互中适配其偏好，比单纯遵循通用的人类价值对齐更贴近真实对话。
+      本文将这一「Interact to Persona Alignment」挑战形式化为一个<strong>部分可观测马尔可夫决策过程</strong>
+      （Persona Alignment MDP, PAMDP）：用户在交互中动态演化的画像，对助手而言是<strong>不可观测变量</strong>。
+      基于该形式化，我们提出一个<strong>双 Critic 强化学习框架</strong>，并以连续隐空间动作表示助手的话语。
+      在离线数据集与在线模拟器上的实验共同验证了方法的有效性。
+    </p>
+  </div>
+
+  <!-- 研究目的 -->
+  <div class="ov-section">
+    <h3><span class="ic">🎯</span>研究目的</h3>
+    <p>
+      RLHF 用<strong>单一奖励模型</strong>拟合所有人的偏好，无法捕捉用户间乃至同一用户在不同语境下的偏好异质性。
+      直接收集用户画像又受隐私与数据敏感性限制。本文要解决的核心问题是：
+      让助手<strong>仅靠多轮交互</strong>，逐轮推断不可见的用户画像，并以「更高的个性化对齐」为长期目标进行优化。
+    </p>
+  </div>
+
+  <!-- 研究方法 -->
+  <div class="ov-section">
+    <h3><span class="ic">🧠</span>研究方法</h3>
+    <div class="ov-card">
+      <div class="method-steps">
+        <div class="mstep"><div class="mnum">1</div><div class="mbody">
+          <b>POMDP 建模</b>：用户画像 ω 为不可观测环境上下文，对话历史 h 为可观测状态，助手为决策体；
+          推导 PAMDP 的 Bellman 方程（Theorem 1）。</div></div>
+        <div class="mstep"><div class="mnum">2</div><div class="mbody">
+          <b>非对称 Actor-Critic</b>：Actor 只看观测 h；Critic 在训练时可看全部（含不可观测的 ω）——
+          即「离线学习、在线执行」范式。</div></div>
+        <div class="mstep"><div class="mnum">3</div><div class="mbody">
+          <b>Dual-Critic 优势估计</b>：用 V(h) 与 V(h,ω) 两个价值函数构造 Advantage Â（Theorem 2），
+          证明其为无偏估计，同时在训练时充分利用 ω 的信息。</div></div>
+        <div class="mstep"><div class="mnum">4</div><div class="mbody">
+          <b>连续隐空间动作</b>：助手的话语由隐空间动作解码生成；奖励由 Qwen2.5-72B 依当前画像对回复打分
+          （优 +1 / 平 +0.5 / 劣 −1）。</div></div>
+      </div>
+      <div class="flow" style="margin-top:14px">
+        <span class="node">隐藏画像 ω</span><span class="arrow">→</span>
+        <span class="node">对话历史 h</span><span class="arrow">→</span>
+        <span class="node accent">V(h)</span><span class="arrow">+</span>
+        <span class="node accent">V(h,ω)</span><span class="arrow">→</span>
+        <span class="node">Advantage Â</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 实验结果 -->
+  <div class="ov-section">
+    <h3><span class="ic">📈</span>实验结果</h3>
+    <div class="chart-card">
+      <div class="ch-title">回复胜率 r<sub>ω</sub> · PrefEval（Qwen2.5-7b，对比 Vanilla 的 win-rate）</div>
+      <div class="ch-sub">论文 Table 2：PAMDP 显著优于 Prompt / FPFT / CoT / BC 等基线。</div>
+      <canvas data-chart='{"type":"bar","unit":"","labels":["Prompt","FPFT","CoT","BC","Ours"],"values":[0.112,0.102,0.133,0.296,0.439],"highlight":4,"max":0.5}'></canvas>
+    </div>
+    <div class="chart-2col">
+      <div class="chart-card">
+        <div class="ch-title">6 轮累计回报</div>
+        <div class="ch-sub">论文 Table 3 趋势：PAMDP 1.74，超 UAAC、DCRL。</div>
+        <canvas data-chart='{"type":"bar","labels":["DCRL","UAAC","PAMDP"],"values":[1.43,1.58,1.74],"highlight":2,"max":2.0}'></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="ch-title">相对基线的累计回报增益</div>
+        <div class="ch-sub">PAMDP 的优势幅度（越高越好）。</div>
+        <canvas data-chart='{"type":"bar","labels":["超 UAAC","超 DCRL"],"values":[0.16,0.31],"highlight":1,"max":0.4}'></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- 论文主图 -->
+  <div class="ov-section">
+    <h3><span class="ic">🖼️</span>论文主图</h3>
+    <figure class="paper-fig">
+      <img src="assets/pamdp-paper.png" alt="PAMDP 论文主图">
+      <figcaption>PAMDP 框架总览（取自论文）</figcaption>
+    </figure>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn primary lg" href="pamdp/" target="_blank">▶ 进入交互演示</a>
+  </div>
+</main>
+
+</body>
+</html>

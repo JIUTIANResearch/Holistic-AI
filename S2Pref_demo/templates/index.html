@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S2Pref · 情境偏好交互演示</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">S2<span class="logo-glow">Pref</span></span>
+    <span class="subtitle">稳定偏好&nbsp;vs&nbsp;情境偏好&nbsp;·&nbsp;Beyond&nbsp;Static&nbsp;Profiles</span>
+  </div>
+  <div class="meta">
+    <a class="tag" href="http://127.0.0.1:8000/index.html">← 总览</a>
+    <span class="tag">中移九天研究院</span>
+    <span class="tag accent">ACL&nbsp;2026</span>
+    <span id="llm-badge" class="tag">LLM …</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 隐藏画像卡 -->
+  <section class="card profile-card">
+    <div class="card-head">
+      <span class="icon">🪪</span>
+      <span class="card-title">隐藏用户画像 <span id="profile-title" class="dim">—</span></span>
+      <span class="grow"></span>
+      <button id="reveal-btn" class="btn tiny">显示</button>
+    </div>
+    <div id="profile-body" class="profile-body masked">
+      <div class="pref-col">
+        <div class="pref-col-head">🟢 稳定偏好 <span class="dim">context-agnostic</span></div>
+        <div id="stable-list" class="pref-list"></div>
+      </div>
+      <div class="pref-col">
+        <div class="pref-col-head">🔀 情境偏好 <span class="dim">context-dependent · 随语境翻转</span></div>
+        <div id="aspect-list" class="pref-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 任务标签页 -->
+  <nav class="tabs">
+    <button class="tab active" data-task="align">Task 1 · 上下文对齐</button>
+    <button class="tab" data-task="conflict">Task 2 · 冲突检测与澄清</button>
+    <button class="tab" data-task="efficiency">Task 3 · 推断效率</button>
+  </nav>
+
+  <!-- TASK 1 -->
+  <section id="panel-align" class="panel">
+    <div class="card">
+      <div class="card-head">
+        <span class="icon">🎯</span>
+        <span class="card-title">同一请求，切换语境看偏好翻转</span>
+      </div>
+      <div class="ctx-switch" id="ctx-switch"></div>
+      <div class="user-req" id="align-user">—</div>
+      <div class="two-col">
+        <div class="col baseline">
+          <div class="col-head">🤖 Baseline <span class="dim">(忽略语境)</span></div>
+          <div id="align-baseline" class="bubble"></div>
+        </div>
+        <div class="col ours">
+          <div class="col-head">✨ S2Pref <span class="accent">(Ours)</span></div>
+          <div id="align-ours" class="bubble"></div>
+        </div>
+      </div>
+      <div id="align-note" class="note-bar"></div>
+    </div>
+  </section>
+
+  <!-- TASK 2 -->
+  <section id="panel-conflict" class="panel hidden">
+    <div class="card">
+      <div class="card-head">
+        <span class="icon">⚠️</span>
+        <span class="card-title">模糊请求：盲目假设 vs 主动澄清</span>
+      </div>
+      <div class="user-req" id="conflict-user">—</div>
+      <div class="two-col">
+        <div class="col baseline">
+          <div class="col-head">🤖 Baseline</div>
+          <div id="conflict-baseline" class="bubble"></div>
+          <div class="verdict bad" id="conflict-baseline-verdict"></div>
+        </div>
+        <div class="col ours">
+          <div class="col-head">✨ S2Pref <span class="accent">(Ours)</span></div>
+          <div id="conflict-ours" class="bubble"></div>
+          <div class="verdict good" id="conflict-ours-verdict"></div>
+        </div>
+      </div>
+      <div id="conflict-explain" class="note-bar warn"></div>
+    </div>
+  </section>
+
+  <!-- TASK 3 -->
+  <section id="panel-efficiency" class="panel hidden">
+    <div class="card">
+      <div class="card-head">
+        <span class="icon">⚡</span>
+        <span class="card-title">逐轮推断：谁更快锁定情境偏好</span>
+        <span class="grow"></span>
+        <span class="eff-summary">
+          Ours <span id="eff-ours-turn" class="accent">?</span> 轮 ·
+          Baseline <span id="eff-base-turn" class="dim">?</span> 轮
+        </span>
+      </div>
+      <div id="eff-stream" class="eff-stream"></div>
+      <div class="eff-controls">
+        <button id="eff-step" class="btn">⏭ 下一轮</button>
+        <button id="eff-auto" class="btn">⏯ 自动播放</button>
+        <button id="eff-reset" class="btn">🔄 重置</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="control-bar">
+  <div class="control-group">
+    <label class="dim">画像</label>
+    <select id="scenario-select" class="ctrl"></select>
+  </div>
+  <div id="status" class="status dim">就绪</div>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

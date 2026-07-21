@@ -1,0 +1,67 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: safe_v2/package-lock.json
+
+      # 只构建前端静态产物（Pages 用不到 server.ts 后端）
+      - name: Build safe_v2 SPA
+        working-directory: safe_v2
+        run: |
+          npm ci
+          npx vite build
+
+      - name: Assemble static site
+        run: |
+          # Pages 根 = site/（Hub 首页 + 四个论文概览页）
+          cp -r site _site
+          # 把 S2Pref SPA 放到 /s2pref/ 下，匹配 Hub 里的链接
+          cp -r safe_v2/dist _site/s2pref
+          # 三个 Flask 演示在 Pages 上无法运行，放占位页避免 404
+          for d in pamdp d2pcm thinking; do
+            mkdir -p _site/$d
+            cat > _site/$d/index.html <<'EOF'
+          <!doctype html><meta charset="utf-8"><title>需本地运行</title>
+          <body style="font-family:sans-serif;padding:2rem;background:#0A0A0B;color:#E4E4E7">
+          <h2>此交互演示需要 Python 后端，无法在 GitHub Pages 上运行。</h2>
+          <p>请克隆仓库后本地运行：<code>python run_all.py</code></p>
+          <p><a href="../" style="color:#38BDF8">← 返回首页</a></p>
+          </body>
+          EOF
+          done
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
