@@ -1,6 +1,0 @@
-{
-  "name": "SafetyGuard Analytics",
-  "description": "実戦模擬平台：多维度个人安全攻防与一致性评估系统",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
