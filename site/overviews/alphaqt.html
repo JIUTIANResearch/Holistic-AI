@@ -1,0 +1,52 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">AlphaQT-Bench: Diagnosing the Gap between Financial Code Generation and Quantitative Reasoning in LLMs</h1>
+<div class="ov-authors">Sichun Luo, Yi Huang, Shichang Meng, Fengyuan Liu, Mukai Li, Qinghua Yao, Zefa Hu, Junlan Feng, Qi Liu · JIUTIAN Research, China Mobile / 香港大学 / 香港城市大学 · ACL 2026</div>
+
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    大语言模型越来越多地用于量化金融中的 alpha 挖掘，从生成符号公式转向生成可执行的代码策略。代码生成表达力更强，
+    却引入了符号方法所没有的风险：<strong>时序因果违规（look-ahead bias）</strong>与<strong>有状态逻辑 bug</strong>。
+    而现有基准多以回测盈利等结果导向指标衡量，常把市场随机性或信息泄漏误当成推理能力。本文提出
+    <strong>AlphaQT-Bench</strong>——一个在严格语义与时序约束下评估指令驱动金融代码生成的诊断基准，采用多层评测协议，
+    在 12 个代表 LLM 上揭示了「能跑通」与「真正正确的量化推理」之间的巨大鸿沟。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    把评测从「能不能赚钱」转向<strong>过程是否可靠</strong>：代码能运行不等于推理正确，偷看未来数据反而可能回测虚高。
+    本文要为 LLM 量化系统提供一套<strong>原则性的安全审计</strong>。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🧠</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>指令驱动任务集</b>：构建分三级难度的量化任务，从基础因子构造到复杂算法推理。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>可执行性</b>：评估生成代码能否成功运行。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>因果安全</b>：用<strong>动态截断测试</strong>检测 look-ahead bias 等时序违规。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>功能正确性 + 结构合规</b>：对照专家 Golden Code 验功能，用向量化分析查结构合规。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">能跑通</span><span class="arrow">≠</span>
+      <span class="node accent">因果安全</span><span class="arrow">≠</span>
+      <span class="node">功能正确</span><span class="arrow">≠</span>
+      <span class="node">结构合规</span>
+    </div>
+  </div>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文配图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/alphaqt.png" alt="AlphaQT-Bench 论文主图">
+    <figcaption>多层评测协议：从可执行性到量化正确性的诊断（取自论文）</figcaption>
+  </figure>
+</div>

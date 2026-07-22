@@ -1,0 +1,52 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">A Learnable Skill Combination Strategy for Multi-task Learning in Natural Language Understanding</h1>
+<div class="ov-authors">Zhe Yang, Yi Huang, Yaqin Chen, Mengfei Guo, Xiaoting Wu, Junlan Feng · JIUTIAN Research / 清华大学计算机系 · ACL 2026</div>
+
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    领域特定自然语言理解（NLU）任务的高质量标注数据获取困难。多任务学习（MTL）通过联合优化多个任务来缓解这一问题，
+    但传统硬参数共享把所有任务压进同一网络、软参数共享又依赖人工选择，均难以精细适配任务差异。本文提出一种
+    <strong>稀疏 NLU 多任务学习框架</strong>：把语言模型分解为<strong>模块化技能组件</strong>，并用
+    <strong>可学习的技能组合机制</strong>，依据任务与技能在隐空间的相似度自适应地为每个任务挑选合适技能。
+    在基准 NLU 数据集上超越传统多任务学习方法。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    现有多任务方法要么无差别共享（硬参数）易致任务互相干扰，要么靠人工配置技能（如 Skill-Net）引入经验偏差，
+    且常存在<strong>负载不均衡</strong>问题。本文要让技能的选择<strong>数据驱动、端到端可学</strong>，并保证各技能同步更新。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🧠</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>技能模块化</b>：把预训练语言模型的 FFN 扩展为 FFN cluster，每个单元代表一种「技能」。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>双嵌入空间</b>：为任务与技能各设嵌入层，在统一隐空间中学习表示，用相似度衡量技能对任务的贡献。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>可微阈值选择</b>：用可微分阈值函数把相似度变为 0/1 技能选择，支持端到端梯度传播，保持稀疏性。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>正交约束</b>：对技能嵌入施加正交约束，促使每个技能学习不同维度的语言知识，并缓解负载不均衡。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">任务嵌入</span><span class="arrow">·</span>
+      <span class="node">技能嵌入</span><span class="arrow">→</span>
+      <span class="node accent">相似度选择</span><span class="arrow">→</span>
+      <span class="node">稀疏技能组合</span>
+    </div>
+  </div>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文配图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/skillcombo.png" alt="Skill Combination 论文主图">
+    <figcaption>任务-技能相似度驱动的稀疏技能组合框架（取自论文）</figcaption>
+  </figure>
+</div>

@@ -1,0 +1,52 @@
+<a class="back-link" href="index.html">← 返回首页</a>
+<h1 class="ov-title">Cognitive Alpha Mining via LLM-Driven Code-Based Evolution</h1>
+<div class="ov-authors">Fengyuan Liu, Yi Huang, Sichun Luo, Yuqi Wang, Yazheng Yang, Xinye Li, Zefa Hu, Junlan Feng, Qi Liu · JIUTIAN Research, China Mobile / 香港大学 · ACL 2026</div>
+
+<div class="ov-abstract">
+  <div class="ab-label">摘要 · Abstract</div>
+  <p>
+    从高维、极低信噪比的金融数据中挖掘有效预测信号（alpha）是开放难题。深度学习模型产出晦涩脆弱的模式，
+    符号/公式方法则易得冗余、缺乏经济含义的表达；二者都难以进行<strong>既合乎逻辑又具创造跃迁</strong>的广泛探索。
+    本文提出<strong>认知式 alpha 挖掘框架 CogAlpha</strong>：将 alpha 以代码形式表示，结合 LLM 驱动的推理与
+    <strong>进化搜索</strong>，把 LLM 视作自适应认知智能体，通过多阶段提示与金融反馈迭代地精炼、变异、重组 alpha 候选。
+    在 3 个市场、5 个股票数据集上，CogAlpha 在预测准确性、鲁棒性与泛化性上持续优于现有方法。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🎯</span>研究目的</h3>
+  <p>
+    让 LLM 从「浅层模式复制器」进化为<strong>真正的认知思考者</strong>：在 alpha 搜索中兼顾逻辑一致性与创造性跳跃，
+    扩大有效搜索空间，发现经济上可解释、长期稳健的 alpha 因子。
+  </p>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🧠</span>研究方法</h3>
+  <div class="ov-card">
+    <div class="method-steps">
+      <div class="mstep"><div class="mnum">1</div><div class="mbody">
+        <b>代码级 alpha 表示</b>：以可执行代码而非符号公式表达 alpha，支持条件逻辑与有状态变换，表达力更强。</div></div>
+      <div class="mstep"><div class="mnum">2</div><div class="mbody">
+        <b>七级智能体层级</b>：构建七层智能体分工，配合多智能体质量检查器，对候选 alpha 做多层把关。</div></div>
+      <div class="mstep"><div class="mnum">3</div><div class="mbody">
+        <b>思维进化</b>：用多阶段提示与金融反馈驱动 LLM 迭代精炼、变异、重组候选，实现更深思考与更丰富结构多样性。</div></div>
+      <div class="mstep"><div class="mnum">4</div><div class="mbody">
+        <b>跨市场验证</b>：在 3 个市场、5 个股票数据集（主聚焦 CSI300）上验证准确率、鲁棒性与泛化优势。</div></div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <span class="node">代码 alpha</span><span class="arrow">→</span>
+      <span class="node">七级智能体</span><span class="arrow">→</span>
+      <span class="node accent">LLM 进化搜索</span><span class="arrow">→</span>
+      <span class="node">可解释 alpha</span>
+    </div>
+  </div>
+</div>
+
+<div class="ov-section">
+  <h3><span class="ic">🖼️</span>论文配图</h3>
+  <figure class="paper-fig">
+    <img src="assets/papers/cogalpha.png" alt="CogAlpha 论文主图">
+    <figcaption>代码级 alpha 表示 + LLM 驱动进化搜索框架（取自论文）</figcaption>
+  </figure>
+</div>

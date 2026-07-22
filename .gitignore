@@ -36,3 +36,6 @@ Thumbs.db
 .vscode/
 .idea/
 *.log
+
+# ===== 新论文素材（站点不依赖，不入仓库）=====
+论文new.md
