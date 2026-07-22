@@ -24,14 +24,6 @@ jobs:
         with:
           node-version: 20
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      # 生成 demo 的脚本模式 JSON 数据（复用现有 engine/scenarios，无外部依赖）
-      - name: Build demos static data
-        run: python demos/build_static.py
-
       - name: Assemble static site
         run: |
           # Pages 根 = site/（Hub 首页 + 论文概览，数据驱动自 papers.json）

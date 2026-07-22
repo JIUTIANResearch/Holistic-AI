@@ -63,7 +63,7 @@ python run_all.py          # Linux / macOS
 # 或 Windows 下 run_all.bat
 ```
 
-> 首次运行前安装依赖：`pip install flask httpx`
+> 首次运行前安装依赖：`pip install flask werkzeug`（仅一键启动需要，站点本身纯静态）
 
 ```
 http://<host>:8888/            Hub 首页（按年代分组）
