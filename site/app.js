@@ -26,7 +26,6 @@
   function confTag(p) {
     var cls = p.year >= 2026 ? "accent" : "violet";
     var txt = p.conf + " " + p.year;
-    if (p.track) txt += " · " + p.track;
     return '<span class="tag ' + cls + '">' + txt + "</span>";
   }
 
@@ -125,7 +124,7 @@
     return (
       '<a class="back-link" href="index.html">← 返回首页</a>' +
       '<h1 class="ov-title">' + p.title + "</h1>" +
-      '<div class="ov-authors">' + p.authors + " · " + p.affiliation + " · " + (p.track ? p.conf + " " + p.year + " (" + p.track + ")" : p.conf + " " + p.year) + "</div>" +
+      '<div class="ov-authors">' + p.authors + " · " + p.affiliation + " · " + p.conf + " " + p.year + "</div>" +
       '<div class="ov-abstract"><div class="ab-label">摘要 · Abstract</div><p>' + p.abstractZh + "</p></div>" +
       '<div class="ov-section"><h3><span class="ic">🖼️</span>论文配图</h3>' + fig + "</div>" +
       linkRow + demoRow
