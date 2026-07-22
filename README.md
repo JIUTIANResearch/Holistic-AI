@@ -1,6 +1,6 @@
-# JIUTIAN Research · Paper Presentation
+# JIUTIAN Research · 体系化人工智能 论文展示
 
-中国移动 **JIUTIAN Research（中移九天研究院）** 论文展示平台
+中国移动 **中国移动九天研究院（JIUTIAN Research）** 论文展示平台
 
 ---
 
@@ -8,7 +8,7 @@
 
 站点以**数据驱动注册表** [`site/papers.json`](site/papers.json) 为唯一数据源：首页按发表年代分组、论文概览页均从此渲染。**加论文只改这一个文件**（再放一张配图），无需改动任何代码或脚手架。
 
-当前收录 14 篇（2026 年 5 篇 / 2025 年 9 篇），涵盖受控文本生成、个性化与偏好建模、知识检索与推理、口语理解、多智能体协作等方向。完整列表见 [站点首页](site/index.html)。
+当前收录 16 篇（2026 年 8 篇 / 2025 年 8 篇），涵盖受控文本生成、个性化与偏好建模、知识检索与推理、口语理解、多智能体协作、量化金融代码生成等方向。完整列表见 [站点首页](site/index.html)。
 
 每篇论文页面包含：论文概览（忠实于论文的方法/实验/配图）、论文链接、本地 PDF，部分论文附带可交互演示。
 
@@ -25,11 +25,12 @@ paperPresentation/
 │   ├── papers.json        # ★ 论文注册表（加论文只改这里）
 │   ├── overviews/         # 各论文概览富文本片段
 │   ├── assets/            # site.css / charts.js / jiutian.svg / papers/*.png
+│   ├── cosmic-background.css/js  # 星空滚动背景层（fixed，铺于内容之下）
+│   └── starfield-bg.webp  # 背景星空图（cosmic-background.js 注入）
 ├── demos/                 # 交互演示（纯静态，D2 统一脚手架）
 │   ├── shell/             # 公共主题 shell.css + 导航 nav.js（所有 demo 共享）
-│   ├── papers/            # 每篇一个自包含目录：index.html + app.js + style.css + data/
-│   │   ├── pamdp/  d2pcm/  thinking/  s2pref/
-│   └── build_static.py    # 从现有 engine/scenarios 预生成 JSON 的脚本
+│   └── papers/            # 每篇一个自包含目录：index.html + app.js + style.css + data/
+│       ├── pamdp/  d2pcm/  thinking/  s2pref/
 ├── papers/                # 论文 PDF（按年代分子目录 2025/ 2026/）
 ├── run_all.py / gateway.py  # 一键启动（单端口 8888，本地调试用）
 └── .github/workflows/deploy.yml  # GitHub Pages 自动部署
@@ -103,4 +104,4 @@ waitress-serve --host=0.0.0.0 --port=8888 gateway:app
 
 ## 📝 许可
 
-本仓库代码用于学术演示。论文版权归原作者所有。
+本仓库代码用于学术演示。版权归中国移动九天研究院所有。
