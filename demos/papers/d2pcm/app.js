@@ -124,7 +124,7 @@ function step() {
   acc.n++;
   if (DATA.turns[turnIdx].memories[t.d2pcm_pick].persona_fit) acc.hit_d++;
   if (DATA.turns[turnIdx].memories[t.rag_pick].persona_fit) acc.hit_r++;
-  acc.mrew_d += t.reward_d2pcm; acc.mrew_r += t.reward_rag;
+  acc.mrew_d += t.mem_reward_d2pcm; acc.mrew_r += t.mem_reward_rag;
   acc.rrew_d += t.reward_d2pcm; acc.rrew_r += t.reward_rag;
   renderKpi();
 }
