@@ -3,7 +3,7 @@
   --bg-0: #07090f;
   --bg-1: #0d1220;
   --bg-2: #131a2e;
-  --bg-card: rgba(20, 26, 46, 0.78);
+  --bg-card: rgba(20, 26, 46, 0.92);
   --border: rgba(94, 145, 255, 0.18);
   --text: #e3e8f5;
   --text-dim: #7d88a3;
@@ -39,8 +39,8 @@ a { color: var(--accent); text-decoration: none; }
   display: flex; align-items: center; justify-content: space-between;
   padding: 16px 32px;
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(13, 18, 32, .9), rgba(13, 18, 32, .55));
-  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(13, 18, 32, .96), rgba(13, 18, 32, .85));
+  backdrop-filter: blur(12px);
   position: sticky; top: 0; z-index: 50;
 }
 .brand { display: flex; align-items: center; gap: 12px; }
@@ -154,7 +154,7 @@ ul.tasks li::before { content: "▸"; position: absolute; left: 4px; color: var(
 
 /* abstract block */
 .ov-abstract {
-  background: rgba(13, 18, 32, .5); border: 1px solid var(--border);
+  background: rgba(13, 18, 32, .8); border: 1px solid var(--border);
   border-radius: 14px; padding: 18px 22px; margin: 20px 0 8px;
 }
 .ov-abstract .ab-label {
